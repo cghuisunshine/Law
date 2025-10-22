@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Business Law — Copy-on-Double-Click Cram Guide</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#0f1733; --ink:#e8ecff; --muted:#a9b3d1;
+    --accent:#8bb2ff; --accent2:#6ee7b7;
+    --ring: rgba(139,178,255,.25); --hover: rgba(139,178,255,.08); --copied: rgba(110,231,183,.18);
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; color:var(--ink);
+    background: radial-gradient(1200px 800px at 10% -10%, #1b2452 0%, #0b1020 40%, #050815 100%);
+    font-family:var(--sans); line-height:1.5;
+  }
+
+  .wrap{
+    max-width:1100px; margin:clamp(16px,3vw,32px) auto;
+    padding:clamp(16px,3vw,32px);
+    background:color-mix(in oklab, var(--panel) 92%, black 8%);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+  }
+
+  header h1{margin:0 0 8px; font-size:clamp(22px, 3.2vw, 36px); letter-spacing:.2px}
+  header p{margin:.25rem 0 1rem; color:var(--muted)}
+  hr{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);margin:20px 0;}
+
+  [data-copyable]{
+    position:relative;border-radius:10px;padding:.15rem .4rem;margin-left:-.4rem;margin-right:-.4rem;
+    transition:background .12s ease,box-shadow .12s ease,transform .05s ease;cursor:copy;
+  }
+  [data-copyable]:hover{background:var(--hover);box-shadow:0 0 0 3px var(--ring);}
+  [data-copyable].copied{background:var(--copied);outline:2px solid rgba(110,231,183,.5);}
+
+  /* Level-based colors */
+  #toc-root .lvl-1 > [data-copyable]{color:var(--accent); font-weight:600; font-size:1.05rem;}
+  #toc-root .lvl-2 > [data-copyable]{color:var(--accent2);}
+  #toc-root .lvl-3 > [data-copyable],
+  #toc-root .lvl-4 > [data-copyable],
+  #toc-root .lvl-5 > [data-copyable]{color:var(--ink);}
+
+  ul{margin:.2rem 0 .75rem 1.25rem;padding:0}
+  li{margin:.15rem 0}
+  .legend{font:12px/1.4 var(--mono); color:var(--muted); margin-top:.5rem}
+
+  .toast{
+    position:fixed;top:14px;right:14px;background:#0a1b12;color:#d5ffe9;
+    border:1px solid rgba(110,231,183,.4);padding:10px 12px;border-radius:10px;
+    font-size:14px;display:none;box-shadow:0 10px 24px rgba(0,0,0,.35);
+  }
+  .kbd{font:11px/1 var(--mono);background:rgba(255,255,255,.08);
+       padding:2px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.14);}
+</style>
+</head>
+<body>
+<div class="wrap" id="content">
+  <header>
+    <h1 data-copyable>📘 Business Law — Copy-on-Double-Click Cram Guide</h1>
+    <p class="legend">Tip: <span class="kbd">Double-click</span> any line to copy it. Use this to prep fast for the exam.</p>
+  </header>
+  <section id="toc-root"></section>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite">Copied ✔</div>
+
+<script>
+/*
+  Paste-ready cram notes for Yates, Business Law in Canada (Ch. 2–9 + e-contracts).
+  The parser expects bullet lines like "* Title (page X.Y)". We treat "page" as a logical anchor.
+*/
+
+const tocText = `
+* 1 Tort vs. Crime vs. Contract (page 1.0)
+  * Torts: civil wrongs; remedies are damages/injunctions; punitive damages punish egregious conduct (page 1.1)
+  * Crimes: prosecuted by the state; penalties not compensation (page 1.2)
+  * Contracts: breach of promise; remedies aim to put victim in expected position (page 1.3)
+  * Business torts to spot: assault/battery; trespass; false imprisonment; nuisance; defamation/passing off; economic torts; vicarious liability (page 1.4)
+
+* 2 Negligence Core — A, B, C, D (page 2.0)
+  * Duty of care: reasonable foreseeability + proximity (Anns framework for new categories) (page 2.1)
+  * Breach: reasonable person under the circumstances; risk + cost influence standard (page 2.2)
+  * Causation: "but for" test (physical) + remoteness (legal) (page 2.3)
+  * Damage: recognized loss (physical, economic, mental distress) (page 2.4)
+  * Defences: contributory negligence (apportion); volenti (assumption of risk); illegality (rare) (page 2.5)
+  * Occupiers’ liability: condition, activities, third-party conduct; higher duty to children (page 2.6)
+  * Product liability: manufacturer negligence; adequate warnings; effect of intermediate inspection (page 2.7)
+  * Vicarious liability: employer liable for employee acting in course of employment (page 2.8)
+
+* 3 Contracts — Formation Essentials (page 3.0)
+  * Consensus: clear offer + unconditional acceptance; new terms = counter-offer; silence ≠ acceptance (page 3.1)
+  * Consideration: something of value; no past consideration; gratuitous promises unenforceable (page 3.2)
+  * Capacity & Legality: minors bound for necessaries; illegal contracts are void (page 3.3)
+  * Intention: presumed in business; not presumed in domestic/social (page 3.4)
+  * Writing: land/long-term contracts often require writing (Statute of Frauds) (page 3.5)
+  * Exemption clauses: strictly interpreted; must be brought to the other party’s attention (page 3.6)
+
+* 4 Electronic Contracts (page 4.0)
+  * E-contracts valid if general rules satisfied (offer/acceptance/intention/consideration) (page 4.1)
+  * Click-wrap: binding when "I agree" + terms reasonably presented (page 4.2)
+  * E-signatures: generally valid; exceptions include land transfers and wills (page 4.3)
+  * Jurisdiction: acceptance effective when/where received → purposeful direction test matters (page 4.4)
+
+* 5 Vitiating Factors (page 5.0)
+  * Misrepresentation: false statement of fact inducing contract (page 5.1)
+  * Innocent: remedy is rescission; bars include affirmation, impossibility, third-party rights, unclean hands (page 5.2)
+  * Negligent: rescission + damages in tort (duty, breach, causation, damage) (page 5.3)
+  * Fraudulent: rescission + damages; punitive possible; failure to correct can become fraud (page 5.4)
+  * Duress (incl. economic): illegitimate pressure → contract voidable (page 5.5)
+  * Undue influence: dominant/trusted person pressure → voidable (page 5.6)
+  * Unconscionability: inequality of bargaining power + improvident bargain (page 5.7)
+  * Mistake: shared (fundamental) → rescission/rectification; mutual (misunderstanding) → void if fundamental; unilateral (other knows/ought to) (page 5.8)
+  * Non est factum: "not my act"; document fundamentally different; rare (page 5.9)
+  * Privity: only parties can sue (limited exceptions) (page 5.10)
+
+* 6 Discharge and Remedies (page 6.0)
+  * Discharge: performance; breach (incl. repudiation/anticipatory); agreement (accord & satisfaction; novation); frustration (page 6.1)
+  * Conditions vs. warranties: breach of condition allows termination; warranty → damages only (page 6.2)
+  * Frustration: unforeseen event makes performance impossible/radically different; increased cost alone is not frustration; self-induced = breach (page 6.3)
+  * Contractual limitations: liquidated damages vs. penalty; acceleration clauses; deposits vs. down payments (page 6.4)
+  * Equitable remedies: specific performance (unique, not personal services); injunction; accounting; quantum meruit (page 6.5)
+  * Equitable limits: discretion; clean hands; laches; undue hardship (page 6.6)
+
+* 7 Public Law Foundations (page 7.0)
+  * Constitution Act 1867: s.91 federal; s.92 provincial (property & civil rights) (page 7.1)
+  * Charter of Rights and Freedoms in Constitution Act 1982; notwithstanding clause limits (page 7.2)
+  * Paramountcy: federal law prevails on conflict (page 7.3)
+
+* 8 High-Frequency Exam Traps (page 8.0)
+  * Innocent misrep ≠ damages (think: R; Negligent: R + D; Fraud: R + D + possible punitive) (page 8.1)
+  * Price hikes ≠ frustration; look for impossibility/radical change (page 8.2)
+  * Specific performance only when damages inadequate; not for personal services (page 8.3)
+  * Silence rarely equals acceptance; watch timing/place of acceptance for jurisdiction (page 8.4)
+  * No damages = no negligence (even with duty/breach/causation) (page 8.5)
+
+* 9 One-Page Memory Sheet (page 9.0)
+  * Negligence: Duty → Breach → Causation → Damage; defences: contributory, volenti, illegality (page 9.1)
+  * Occupiers: condition/activities/third parties; kids need higher care (page 9.2)
+  * Products: manufacturer negligence; warnings; inspections (page 9.3)
+  * Misrep remedies map: Innocent R; Negligent R + D; Fraud R + D (+ punitive) (page 9.4)
+  * Duress/Undue/Unconsc.: voidable; inequality + improvident terms (page 9.5)
+  * Discharge: performance, breach, agreement, frustration; equitable remedies need clean hands (page 9.6)
+  * Formation: unconditional acceptance; new consideration for variation; exemptions need notice (page 9.7)
+  * Public: statute over case when conflict; s.91 vs s.92; Charter baseline (page 9.8)
+
+* 10 10-Minute Drills (page 10.0)
+  * Online term added after acceptance: counter-offer? notice of exemption? (page 10.1)
+  * Venue burns down: frustration vs. breach and why (page 10.2)
+  * Honest but wrong sales capacity claim: innocent misrep remedy and bars (page 10.3)
+  * Overserving alcohol: occupiers + negligence + foreseeability of rescue (page 10.4)
+  * Parent co-signer pressured: undue influence indicators (page 10.5)
+`;
+
+function parseTOC(text){
+  const lines = text.split('\n').map(l=>l.replace(/\r/g,'')).filter(l=>/^\s*[*\-•]\s+/.test(l));
+  const root = {children:[]}; const stack=[{node:root,level:-1}];
+  for(const raw of lines){
+    const m = raw.match(/^(\s*)[*\-•]\s*(.+?)\s*\(page\s*([0-9]+(?:\.[0-9]+)*)\)\s*$/i);
+    if(!m) continue;
+    const level = Math.floor(m[1].length/2);
+    const node = {title:m[2].trim(), page:m[3].trim(), children:[]};
+    while(stack.length && stack[stack.length-1].level >= level) stack.pop();
+    stack[stack.length-1].node.children.push(node);
+    stack.push({node,level});
+  }
+  return root.children;
+}
+
+function renderTOC(nodes, level=1){
+  const ul=document.createElement('ul');
+  for(const n of nodes){
+    const li=document.createElement('li');
+    li.classList.add(`lvl-${level}`);
+    const label=document.createElement('span');
+    label.dataset.copyable='';
+    label.setAttribute('tabindex','0');
+    label.setAttribute('title','Double-click to copy');
+    label.textContent=`${n.title} (page ${n.page})`;
+    li.appendChild(label);
+    if(n.children?.length) li.appendChild(renderTOC(n.children, level+1));
+    ul.appendChild(li);
+  }
+  return ul;
+}
+
+const tocRoot=document.getElementById('toc-root');
+const tree=parseTOC(tocText);
+tocRoot.innerHTML='<hr />'; tocRoot.appendChild(renderTOC(tree)); tocRoot.appendChild(document.createElement('hr'));
+
+(function(){
+  const container=document.getElementById('content');
+  const toast=document.getElementById('toast');
+
+  container.addEventListener('dblclick', async (ev)=>{
+    const target=ev.target.closest('[data-copyable]');
+    if(!target)return;
+    const text=(target.innerText||target.textContent||"").replace(/\s+/g,' ').trim();
+    if(!text)return;
+    try{await navigator.clipboard.writeText(text);}
+    catch{
+      const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);
+      ta.select();try{document.execCommand('copy');}catch{}ta.remove();
+    }
+    target.classList.add('copied');setTimeout(()=>target.classList.remove('copied'),650);
+    toast.textContent='Copied ✔';toast.style.display='block';toast.style.opacity='0';toast.style.transform='translateY(-6px)';
+    requestAnimationFrame(()=>{toast.style.transition='opacity .18s ease,transform .18s ease';toast.style.opacity='1';toast.style.transform='translateY(0)';});
+    clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>{
+      toast.style.opacity='0';toast.style.transform='translateY(-6px)';
+      setTimeout(()=>{toast.style.display='none';},200);
+    },1100);
+  },{passive:true});
+
+  container.addEventListener('keydown',(ev)=>{
+    if(ev.key!=='Enter')return;
+    const target=ev.target.closest('[data-copyable]');
+    if(!target)return;
+    ev.preventDefault();
+    target.dispatchEvent(new MouseEvent('dblclick',{bubbles:true}));
+  });
+})();
+</script>
+</body>
+</html>
+
