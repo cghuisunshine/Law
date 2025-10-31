@@ -52,6 +52,57 @@
   li{margin:.15rem 0}
   .legend{font:12px/1.4 var(--mono); color:var(--muted); margin-top:.5rem}
 
+  .ip-guide{
+    display:flex;
+    flex-direction:column;
+    gap:clamp(18px,3vw,28px);
+    margin:clamp(22px,4vw,48px) 0;
+  }
+  .ip-guide h2{
+    margin:0;
+    font-size:clamp(20px,2.8vw,32px);
+    color:var(--accent);
+    letter-spacing:.18px;
+  }
+  .ip-block{
+    padding:clamp(16px,3vw,28px);
+    border-radius:14px;
+    background:color-mix(in oklab, var(--panel) 95%, black 5%);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 10px 26px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .ip-block > * + *{margin-top:.65rem;}
+  .ip-block ul{margin:.25rem 0 .4rem 1.2rem;}
+  .ip-block ol{margin:.25rem 0 .4rem 1.4rem;padding:0;}
+  .ip-block li{margin:.2rem 0;}
+  .ip-block strong{color:var(--accent2);font-weight:600;}
+  .ip-block ol li > [data-copyable]{display:block;margin-bottom:.3rem;}
+  .ip-table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0 8px;
+  }
+  .ip-table th,
+  .ip-table td{
+    padding:0;
+  }
+  .ip-table [data-copyable]{
+    display:block;
+    padding:12px 16px;
+    border-radius:10px;
+    background:rgba(12,20,44,.82);
+    border:1px solid rgba(255,255,255,.05);
+  }
+  .ip-table thead [data-copyable]{
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:.08em;
+    color:var(--muted);
+  }
+  .ip-table tbody tr:nth-child(even) [data-copyable]{background:rgba(14,26,52,.86);}
+  .ip-table tbody tr:hover [data-copyable]{background:var(--hover);}
+  .ip-footnote{font-size:13px;color:var(--muted);margin-top:.4rem;}
+
   .toast{
     position:fixed;top:14px;right:14px;background:#0a1b12;color:#d5ffe9;
     border:1px solid rgba(110,231,183,.4);padding:10px 12px;border-radius:10px;
@@ -67,6 +118,195 @@
     <h1 data-copyable>📘 Business Law — Copy-on-Double-Click Cram Guide</h1>
     <p class="legend">Tip: <span class="kbd">Double-click</span> any line to copy it. Use this to prep fast for the exam.</p>
   </header>
+  <section class="ip-guide" aria-labelledby="ip-guide-title">
+    <h2 id="ip-guide-title" data-copyable>Intellectual Property in Canada — Key Points Summary</h2>
+
+    <article class="ip-block">
+      <h3 data-copyable>1️⃣ Overview: What is Intellectual Property (IP)?</h3>
+      <p data-copyable>IP refers to creations of the mind — inventions, designs, symbols, works, and confidential information — that can be legally owned and protected.</p>
+      <p data-copyable>Main types in Canada:</p>
+      <ul>
+        <li data-copyable>Patents</li>
+        <li data-copyable>Trademarks</li>
+        <li data-copyable>Copyright</li>
+        <li data-copyable>Industrial Designs</li>
+        <li data-copyable>Trade Secrets</li>
+      </ul>
+    </article>
+
+    <article class="ip-block">
+      <h3 data-copyable>2️⃣ PATENTS 【source: ip_academy-patents.pdf】</h3>
+      <ul>
+        <li data-copyable><strong>Purpose:</strong> Protect new, useful, and non-obvious inventions.</li>
+        <li data-copyable><strong>Examples:</strong> Products, processes, machines, chemical compositions, or improvements.</li>
+        <li data-copyable><strong>Rights:</strong> Exclusive right to make, use, or sell the invention.</li>
+        <li data-copyable><strong>Duration:</strong> Up to 20 years from filing date.</li>
+        <li data-copyable><strong>Conditions:</strong> Must be new, useful, and non-obvious.</li>
+        <li data-copyable><strong>Disclosure:</strong> Published 18 months after filing.</li>
+        <li data-copyable><strong>Tip:</strong> File before public disclosure; use a patent agent; patents are territorial.</li>
+      </ul>
+    </article>
+
+    <article class="ip-block">
+      <h3 data-copyable>3️⃣ TRADEMARKS 【source: ip_academy-trademarks.pdf】</h3>
+      <ul>
+        <li data-copyable><strong>Purpose:</strong> Identify and distinguish goods/services.</li>
+        <li data-copyable><strong>Examples:</strong> Words, logos, designs, sounds, scents, shapes, colors, holograms.</li>
+        <li data-copyable><strong>Rights:</strong> Exclusive right to use the mark in Canada.</li>
+        <li data-copyable><strong>Duration:</strong> 10 years, renewable indefinitely.</li>
+      </ul>
+      <p data-copyable><strong>Registration Benefits:</strong></p>
+      <ul>
+        <li data-copyable>Proof of ownership</li>
+        <li data-copyable>National protection</li>
+        <li data-copyable>Prevents imitation</li>
+        <li data-copyable>Enables licensing/revenue</li>
+      </ul>
+      <p data-copyable><strong>Application Steps:</strong></p>
+      <ul>
+        <li data-copyable>File application (online/mail/fax)</li>
+        <li data-copyable>Examination (check for conflicts)</li>
+        <li data-copyable>Advertisement (2 months for opposition)</li>
+        <li data-copyable>Approval/Registration</li>
+        <li data-copyable>Renew every 10 years</li>
+      </ul>
+      <p data-copyable><strong>Tip:</strong> Register early; a domain name or company name ≠ trademark rights.</p>
+    </article>
+
+    <article class="ip-block">
+      <h3 data-copyable>4️⃣ COPYRIGHT 【source: ip_academy-copyright.pdf】</h3>
+      <ul>
+        <li data-copyable><strong>Purpose:</strong> Protect original creative works.</li>
+        <li data-copyable><strong>Examples:</strong> Books, songs, photos, software, movies, performances.</li>
+        <li data-copyable><strong>Rights:</strong> Control over reproduction, publication, performance, adaptation.</li>
+        <li data-copyable><strong>Duration:</strong> Life of creator + 70 years.</li>
+        <li data-copyable><strong>Automatic:</strong> Protection begins upon creation (registration optional but useful).</li>
+        <li data-copyable><strong>Note:</strong> Facts and ideas themselves are not protected — only the expression.</li>
+        <li data-copyable><strong>Tip:</strong> Use © notice, date, and name on your work; contracts clarify ownership.</li>
+      </ul>
+    </article>
+
+    <article class="ip-block">
+      <h3 data-copyable>5️⃣ INDUSTRIAL DESIGN 【source: CIPOCS-1965-_wr05067-eng.pdf】</h3>
+      <ul>
+        <li data-copyable><strong>Purpose:</strong> Protect visual features (shape, configuration, ornamentation).</li>
+        <li data-copyable><strong>Examples:</strong> Product appearance, icons, user interfaces, packaging.</li>
+        <li data-copyable><strong>Rights:</strong> Exclude others from making/selling a product with your design.</li>
+        <li data-copyable><strong>Duration:</strong> Up to 15 years from filing.</li>
+        <li data-copyable><strong>Tip:</strong> Must be novel; keep design secret before applying.</li>
+      </ul>
+    </article>
+
+    <article class="ip-block">
+      <h3 data-copyable>6️⃣ TRADE SECRETS 【source: ip_academy-trade_secrets.pdf】</h3>
+      <ul>
+        <li data-copyable><strong>Purpose:</strong> Protect confidential business information that gives a competitive edge.</li>
+        <li data-copyable><strong>Examples:</strong> Formulas, methods, algorithms, client lists, manufacturing processes.</li>
+        <li data-copyable><strong>Rights:</strong> No formal registration — protection lasts as long as secrecy is maintained.</li>
+      </ul>
+      <p data-copyable><strong>Safeguards:</strong></p>
+      <ul>
+        <li data-copyable>Non-disclosure/confidentiality agreements</li>
+        <li data-copyable>Secure storage and restricted access</li>
+        <li data-copyable>Encryption or password protection</li>
+      </ul>
+      <p data-copyable><strong>Tip:</strong> Once made public, protection ends; enforceable through contract or court.</p>
+    </article>
+
+    <article class="ip-block">
+      <h3 data-copyable>7️⃣ IP in SOFTWARE 【source: CIPOCS-1965-_wr05067-eng.pdf】</h3>
+      <ul>
+        <li data-copyable><strong>Copyright:</strong> Protects source code as literary work.</li>
+        <li data-copyable><strong>Patents:</strong> May apply to technical inventions (not abstract ideas).</li>
+        <li data-copyable><strong>Trade Secrets:</strong> Useful for algorithms or proprietary data not disclosed.</li>
+        <li data-copyable><strong>Trademarks:</strong> For branding software or services.</li>
+        <li data-copyable><strong>Industrial Design:</strong> For unique graphical interfaces.</li>
+      </ul>
+    </article>
+
+    <article class="ip-block">
+      <h3 data-copyable>8️⃣ BUSINESS STRATEGY 【source: peter-comic-eng.pdf】</h3>
+      <ul>
+        <li data-copyable>Identify IP assets — what’s new, original, or distinctive.</li>
+        <li data-copyable>Keep secrets secure before disclosure.</li>
+        <li data-copyable>Search existing patents/trademarks before filing.</li>
+        <li data-copyable>Align IP strategy with business goals (licensing, export, expansion).</li>
+      </ul>
+      <p data-copyable><strong>Use CIPO resources:</strong></p>
+      <ul>
+        <li data-copyable>canada.ca/intellectual-property</li>
+        <li data-copyable>canada.ca/find-patents</li>
+        <li data-copyable>cipo.ic.gc.ca/search-tm</li>
+      </ul>
+    </article>
+
+    <article class="ip-block">
+      <h3 data-copyable>🧭 Concise Tutorial: “How to Protect Your IP in Canada”</h3>
+      <ol>
+        <li>
+          <span data-copyable>Step 1 – Identify what you created → invention, brand, design, creative work, or secret info.</span>
+        </li>
+        <li>
+          <span data-copyable>Step 2 – Match to IP type</span>
+          <table class="ip-table">
+            <thead>
+              <tr>
+                <th><span data-copyable>Creation Type</span></th>
+                <th><span data-copyable>Protection Type</span></th>
+                <th><span data-copyable>Registration Needed?</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span data-copyable>New product/process</span></td>
+                <td><span data-copyable>Patent</span></td>
+                <td><span data-copyable>✅ Yes</span></td>
+              </tr>
+              <tr>
+                <td><span data-copyable>Brand/logo/slogan</span></td>
+                <td><span data-copyable>Trademark</span></td>
+                <td><span data-copyable>✅ Yes</span></td>
+              </tr>
+              <tr>
+                <td><span data-copyable>Artwork/software</span></td>
+                <td><span data-copyable>Copyright</span></td>
+                <td><span data-copyable>⚙️ Optional</span></td>
+              </tr>
+              <tr>
+                <td><span data-copyable>Product appearance</span></td>
+                <td><span data-copyable>Industrial Design</span></td>
+                <td><span data-copyable>✅ Yes</span></td>
+              </tr>
+              <tr>
+                <td><span data-copyable>Secret formula/process</span></td>
+                <td><span data-copyable>Trade Secret</span></td>
+                <td><span data-copyable>❌ No</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <span data-copyable>Step 3 – File or safeguard properly</span>
+          <ul>
+            <li data-copyable>Patents: Apply within 12 months of disclosure.</li>
+            <li data-copyable>Trademarks: Apply early, renew every 10 years.</li>
+            <li data-copyable>Designs: Keep confidential until filed.</li>
+            <li data-copyable>Secrets: Secure through contracts.</li>
+            <li data-copyable>Copyright: Add © and record if desired.</li>
+          </ul>
+        </li>
+        <li>
+          <span data-copyable>Step 4 – Enforce your rights</span>
+          <p data-copyable>Monitor the marketplace; infringement enforcement is your responsibility.</p>
+        </li>
+        <li>
+          <span data-copyable>Step 5 – Use and monetize</span>
+          <p data-copyable>License, franchise, or sell your IP to generate income.</p>
+        </li>
+      </ol>
+      <p class="ip-footnote" data-copyable>Tip: Revisit your IP portfolio regularly as your business evolves.</p>
+    </article>
+  </section>
   <section id="toc-root"></section>
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite">Copied ✔</div>
@@ -228,4 +468,3 @@ tocRoot.innerHTML='<hr />'; tocRoot.appendChild(renderTOC(tree)); tocRoot.append
 </script>
 </body>
 </html>
-

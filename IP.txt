@@ -1,0 +1,147 @@
+Intellectual Property in Canada — Key Points Summary
+1️⃣ Overview: What is Intellectual Property (IP)?
+
+IP refers to creations of the mind — inventions, designs, symbols, works, and confidential information — that can be legally owned and protected.
+Main types in Canada:
+
+Patents
+
+Trademarks
+
+Copyright
+
+Industrial Designs
+
+Trade Secrets
+
+2️⃣ PATENTS 【source: ip_academy-patents.pdf】
+
+Purpose: Protect new, useful, and non-obvious inventions.
+Examples: Products, processes, machines, chemical compositions, or improvements.
+Rights: Exclusive right to make, use, or sell the invention.
+Duration: Up to 20 years from filing date.
+Conditions: Must be new, useful, non-obvious.
+Disclosure: Published 18 months after filing.
+Tip: File before public disclosure; use a patent agent; patents are territorial.
+
+3️⃣ TRADEMARKS 【source: ip_academy-trademarks.pdf】
+
+Purpose: Identify and distinguish goods/services.
+Examples: Words, logos, designs, sounds, scents, shapes, colors, holograms.
+Rights: Exclusive right to use the mark in Canada.
+Duration: 10 years, renewable indefinitely.
+Registration Benefits:
+
+Proof of ownership
+
+National protection
+
+Prevents imitation
+
+Enables licensing/revenue
+Application Steps:
+
+File application (online/mail/fax)
+
+Examination (check for conflicts)
+
+Advertisement (2 months for opposition)
+
+Approval/Registration
+
+Renew every 10 years
+Tip: Register early; a domain name or company name ≠ trademark rights.
+
+4️⃣ COPYRIGHT 【source: ip_academy-copyright.pdf】
+
+Purpose: Protect original creative works.
+Examples: Books, songs, photos, software, movies, performances.
+Rights: Control over reproduction, publication, performance, adaptation.
+Duration: Life of creator + 70 years.
+Automatic: Protection begins upon creation (registration optional but useful).
+Note: Facts and ideas themselves are not protected — only the expression.
+Tip: Use © notice, date, and name on your work; contracts clarify ownership.
+
+5️⃣ INDUSTRIAL DESIGN 【source: CIPOCS-1965-_wr05067-eng.pdf】
+
+Purpose: Protect visual features (shape, configuration, ornamentation).
+Examples: Product appearance, icons, user interfaces, packaging.
+Rights: Exclude others from making/selling a product with your design.
+Duration: Up to 15 years from filing.
+Tip: Must be novel; keep design secret before applying.
+
+6️⃣ TRADE SECRETS 【source: ip_academy-trade_secrets.pdf】
+
+Purpose: Protect confidential business information that gives a competitive edge.
+Examples: Formulas, methods, algorithms, client lists, manufacturing processes.
+Rights: No formal registration — protection lasts as long as secrecy is maintained.
+Safeguards:
+
+Non-disclosure/confidentiality agreements
+
+Secure storage and restricted access
+
+Encryption or password protection
+Tip: Once made public, protection ends; enforceable through contract or court.
+
+7️⃣ IP in SOFTWARE 【source: CIPOCS-1965-_wr05067-eng.pdf】
+
+Copyright: Protects source code as literary work.
+
+Patents: May apply to technical inventions (not abstract ideas).
+
+Trade Secrets: Useful for algorithms or proprietary data not disclosed.
+
+Trademarks: For branding software or services.
+
+Industrial Design: For unique graphical interfaces.
+
+8️⃣ BUSINESS STRATEGY 【source: peter-comic-eng.pdf】
+
+Identify IP assets — what’s new, original, or distinctive.
+
+Keep secrets secure before disclosure.
+
+Search existing patents/trademarks before filing.
+
+Align IP strategy with business goals (licensing, export, expansion).
+
+Use CIPO resources:
+
+canada.ca/intellectual-property
+
+canada.ca/find-patents
+
+cipo.ic.gc.ca/search-tm
+
+🧭 Concise Tutorial: “How to Protect Your IP in Canada”
+
+Step 1 – Identify what you created
+→ invention, brand, design, creative work, or secret info.
+
+Step 2 – Match to IP type
+
+Creation Type	Protection Type	Registration Needed?
+New product/process	Patent	✅ Yes
+Brand/logo/slogan	Trademark	✅ Yes
+Artwork/software	Copyright	⚙️ Optional
+Product appearance	Industrial Design	✅ Yes
+Secret formula/process	Trade Secret	❌ No
+
+Step 3 – File or safeguard properly
+
+Patents: Apply within 12 months of disclosure.
+
+Trademarks: Apply early, renew every 10 years.
+
+Designs: Keep confidential until filed.
+
+Secrets: Secure through contracts.
+
+Copyright: Add © and record if desired.
+
+Step 4 – Enforce your rights
+Monitor the marketplace; infringement enforcement is your responsibility.
+
+Step 5 – Use and monetize
+License, franchise, or sell your IP to generate income.
