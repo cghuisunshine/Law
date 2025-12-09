@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Privacy, Intellectual Property, and Cybercrime – Full Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f7;
+      color: #222;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 24px 20px 32px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    }
+    h1, h2, h3, h4 {
+      font-weight: 650;
+      color: #1b2a41;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 0.5em;
+    }
+    h2 {
+      margin-top: 1.6em;
+      border-bottom: 2px solid #e0e4ec;
+      padding-bottom: 0.2em;
+    }
+    .chapter-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      gap: 8px;
+    }
+    .chapter-toggle::after {
+      content: "▾";
+      font-size: 0.9rem;
+      color: #4b5563;
+      transition: transform 0.16s ease;
+    }
+    .chapter-toggle.collapsed::after {
+      transform: rotate(-90deg);
+    }
+    .chapter-body {
+      margin-top: 0.2em;
+    }
+    .chapter-body.collapsed {
+      display: none;
+    }
+    h3 {
+      margin-top: 1.2em;
+    }
+    h4 {
+      margin-top: 1em;
+      font-size: 1.02rem;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 1.8em;
+      color: #555;
+      font-size: 0.98rem;
+    }
+    p {
+      margin: 0.4em 0 0.8em;
+    }
+    ul {
+      margin: 0.2em 0 0.8em 1.5em;
+    }
+    li {
+      margin: 0.2em 0;
+    }
+    .chapter-title {
+      margin-top: 2.4em;
+      font-size: 1.6rem;
+      border-bottom: 3px solid #cfd4e6;
+      padding-bottom: 0.25em;
+    }
+    .summary {
+      background: #f0f4ff;
+      border-left: 4px solid #4c6fff;
+      padding: 0.8em 1em;
+      margin: 1.4em 0;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1em 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid #d0d4e0;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eef1fb;
+      font-weight: 600;
+    }
+    code {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+      font-size: 0.9rem;
+      background: #f3f3f6;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    /* Flashcards section (namespaced) */
+    #flashcards {
+      margin-top: 2.4em;
+      padding: 18px 16px 22px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0f172a, #0a1024 60%, #050912);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    #flashcards h2 {
+      margin: 0 0 0.35em;
+      color: #f8fafc;
+    }
+
+    #flashcards .fc-intro {
+      margin: 0 0 1em;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    #flashcards .fc-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    #flashcards .fc-pill {
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    #flashcards .fc-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #38bdf8;
+    }
+
+    #flashcards .fc-select {
+      background: #020617;
+      color: #e5e7eb;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 7px 30px 7px 10px;
+      font-size: 0.95rem;
+      outline: none;
+      appearance: none;
+    }
+
+    #flashcards .fc-select-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    #flashcards .fc-select-wrapper::after {
+      content: "▾";
+      position: absolute;
+      right: 10px;
+      color: #94a3b8;
+      font-size: 0.72rem;
+      pointer-events: none;
+    }
+
+    #flashcards .fc-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      border-radius: 14px;
+      padding: 16px 14px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #flashcards .fc-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 8% 10%, rgba(56, 189, 248, 0.18), transparent 55%);
+      pointer-events: none;
+    }
+
+    #flashcards .fc-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    #flashcards .fc-badge {
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #cbd5e1;
+      background: rgba(2, 6, 23, 0.8);
+    }
+
+    #flashcards .fc-index {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    #flashcards .fc-question-text {
+      position: relative;
+      z-index: 1;
+      font-size: 1rem;
+      margin: 0 0 10px;
+    }
+
+    #flashcards .fc-options {
+      position: relative;
+      z-index: 1;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    #flashcards .fc-option {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.7);
+      cursor: pointer;
+      transition: border-color 0.16s ease, transform 0.08s ease, background 0.16s ease,
+        box-shadow 0.16s ease;
+      outline: none;
+    }
+
+    #flashcards .fc-option:hover,
+    #flashcards .fc-option:focus-visible {
+      border-color: rgba(56, 189, 248, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+      transform: translateY(-1px);
+    }
+
+    #flashcards .fc-option.selected {
+      border-color: rgba(56, 189, 248, 0.7);
+    }
+
+    #flashcards .fc-option.correct {
+      background: rgba(34, 197, 94, 0.12);
+      border-color: rgba(34, 197, 94, 0.8);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.3);
+    }
+
+    #flashcards .fc-option.incorrect {
+      background: rgba(249, 115, 115, 0.12);
+      border-color: rgba(249, 115, 115, 0.75);
+      box-shadow: 0 0 0 1px rgba(249, 115, 115, 0.25);
+    }
+
+    #flashcards .fc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    #flashcards .fc-nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    #flashcards .fc-btn {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 7px 14px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      transition: background 0.16s ease, transform 0.08s ease, box-shadow 0.16s ease,
+        border-color 0.16s ease;
+    }
+
+    #flashcards .fc-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.65);
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+
+    #flashcards .fc-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    #flashcards .fc-meta {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    #flashcards .fc-meta .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    @media (min-width: 768px) {
+      #flashcards {
+        padding: 22px 20px 24px;
+      }
+
+      #flashcards .fc-card {
+        padding: 20px 18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Privacy, Intellectual Property, and Cybercrime</h1>
+  <p class="subtitle">
+    A concise, three-chapter tutorial for Business Law, Computing, and Cybersecurity courses.
+  </p>
+
+  <!-- ===================== CHAPTER 1 ===================== -->
+  <h2 class="chapter-title">Chapter 1 — Privacy &amp; Confidentiality</h2>
+
+  <h3>1.1 What Is Privacy?</h3>
+  <p>
+    <strong>Privacy</strong> is an individual’s legal right to control how their
+    <strong>personal information</strong> is collected, used, stored, and disclosed.
+  </p>
+  <p>Examples of personal information include:</p>
+  <ul>
+    <li>Name, address, phone number, identification numbers</li>
+    <li>Medical and health records</li>
+    <li>Financial data and banking details</li>
+    <li>Employment information</li>
+    <li>Online identifiers and browsing or location data</li>
+  </ul>
+  <p>
+    Privacy laws (e.g., the <em>Privacy Act</em>, <em>PIPEDA</em>, provincial
+    privacy statutes) regulate how organizations and public bodies handle this information.
+  </p>
+
+  <h4>Key Privacy Rights</h4>
+  <p>Individuals typically have rights to:</p>
+  <ul>
+    <li>Access their personal information held by an organization</li>
+    <li>Request corrections to inaccurate or incomplete data</li>
+    <li>Know why their data is being collected and how it will be used</li>
+    <li>Give or withdraw consent (subject to legal limits)</li>
+    <li>File complaints with privacy commissioners or regulators</li>
+  </ul>
+  <p>
+    Privacy places obligations on institutions to ensure data is handled
+    <strong>fairly, transparently, and securely</strong>.
+  </p>
+
+  <h3>1.2 What Is Confidentiality?</h3>
+  <p>
+    <strong>Confidentiality</strong> is a <strong>duty or obligation</strong> to keep
+    certain information secret. It applies to <em>any information</em> shared in
+    confidence, not only personal information.
+  </p>
+  <p>Examples of information that may be confidential:</p>
+  <ul>
+    <li>Client lists and customer data</li>
+    <li>Business strategies and marketing plans</li>
+    <li>Internal processes, formulas, methods</li>
+    <li>Medical, legal, or counselling records</li>
+    <li>Proprietary research and data shared under NDA</li>
+  </ul>
+  <p>Confidentiality duties may arise from:</p>
+  <ul>
+    <li>Contracts (e.g., non-disclosure agreements, employment contracts)</li>
+    <li>Professional codes (lawyers, doctors, accountants, therapists)</li>
+    <li>Implied business relationships and fiduciary obligations</li>
+  </ul>
+
+  <h4>Privacy vs. Confidentiality</h4>
+  <ul>
+    <li><strong>Privacy</strong> protects <em>individuals</em> and their personal information.</li>
+    <li><strong>Confidentiality</strong> protects <em>information</em> that is shared in trust.</li>
+  </ul>
+  <p>They often overlap but are <strong>not the same concept</strong>.</p>
+
+  <h3>1.3 Confidential Information &amp; Trade Secrets</h3>
+  <p>
+    <strong>Confidential information</strong> is information that is not publicly available
+    and is shared with an expectation that it will be kept private.
+  </p>
+  <p>
+    Confidential information becomes a <strong>trade secret</strong> when it meets
+    three conditions:
+  </p>
+  <ul>
+    <li>It has real or potential <strong>commercial value</strong>.</li>
+    <li>It is <strong>not publicly known or easily obtainable</strong>.</li>
+    <li>
+      It is protected by <strong>reasonable measures</strong> (e.g., NDAs, restricted
+      access, security policies).
+    </li>
+  </ul>
+  <p>Examples of trade secrets:</p>
+  <ul>
+    <li>Formulas and recipes (e.g., a cola recipe)</li>
+    <li>Algorithms and source code</li>
+    <li>Manufacturing processes and methods</li>
+    <li>Strategic customer lists and pricing models</li>
+    <li>Internal “know-how” and workflows</li>
+  </ul>
+  <p>
+    Trade secrets can last <strong>indefinitely</strong> as long as secrecy is maintained.
+  </p>
+
+  <h3>1.4 Breach of Confidence (Legal Test)</h3>
+  <p>
+    A <strong>breach of confidence</strong> occurs when confidential information is misused
+    or disclosed without consent or authority.
+  </p>
+  <p>Courts generally require proof that:</p>
+  <ol>
+    <li>The information was <strong>confidential</strong> in nature.</li>
+    <li>It was <strong>communicated in confidence</strong> (explicitly or implicitly).</li>
+    <li>
+      It was <strong>misused</strong> or disclosed by the person to whom it was communicated,
+      causing or risking harm.
+    </li>
+  </ol>
+  <p>Possible remedies include:</p>
+  <ul>
+    <li>Injunctions (to stop further misuse or disclosure)</li>
+    <li>Damages (compensation)</li>
+    <li>Accounting of profits (disgorging profits made through misuse)</li>
+  </ul>
+
+  <div class="summary">
+    <strong>Chapter 1 Summary:</strong> Privacy is a legal right protecting
+    individuals’ personal information; confidentiality is a duty to keep information
+    shared in trust secret. Trade secrets are valuable confidential business
+    information, protected indefinitely as long as secrecy is preserved, and
+    breaches can lead to legal action for breach of confidence.
+  </div>
+
+  <!-- ===================== CHAPTER 2 ===================== -->
+  <h2 class="chapter-title">Chapter 2 — Intellectual Property (IP)</h2>
+
+  <h3>2.1 What Is Intellectual Property?</h3>
+  <p>
+    <strong>Intellectual property (IP)</strong> refers to <strong>creations of the mind</strong>:
+    inventions, creative works, brand identifiers, confidential business information,
+    and know-how.
+  </p>
+  <p>
+    Because IP is <strong>intangible</strong>, it requires special legal protection to prevent
+    others from copying, stealing, or misusing it.
+  </p>
+  <p>IP rights:</p>
+  <ul>
+    <li>Prove ownership of creations</li>
+    <li>Give creators exclusive control and economic benefit</li>
+    <li>Encourage innovation and creativity</li>
+  </ul>
+  <p>The four core categories of IP in this tutorial are:</p>
+  <ul>
+    <li><strong>Copyright</strong></li>
+    <li><strong>Trademarks</strong></li>
+    <li><strong>Patents</strong></li>
+    <li><strong>Trade secrets</strong></li>
+  </ul>
+
+  <h3>2.2 Copyright</h3>
+  <h4>What Copyright Protects</h4>
+  <p>Copyright protects <strong>original expressions</strong>, not ideas themselves. Examples:</p>
+  <ul>
+    <li>Books, articles, blog posts, and software code</li>
+    <li>Music, films, recordings, choreography</li>
+    <li>Paintings, drawings, photographs, graphic designs</li>
+    <li>Architectural works and digital or web content</li>
+  </ul>
+
+  <h4>Exclusive Rights</h4>
+  <p>The copyright owner has the exclusive right to:</p>
+  <ul>
+    <li>Reproduce (copy) the work</li>
+    <li>Publish or distribute it</li>
+    <li>Perform or display it in public</li>
+    <li>Create adaptations or derivative works</li>
+  </ul>
+
+  <h4>Duration</h4>
+  <p>
+    In Canada, copyright typically lasts for the
+    <strong>life of the author plus 70 years</strong>.
+  </p>
+
+  <h4>Creation &amp; Ownership</h4>
+  <ul>
+    <li>Copyright arises <strong>automatically</strong> when the work is fixed in a tangible form.</li>
+    <li>Employees’ works are usually owned by the employer when created in the course of employment.</li>
+    <li>
+      Creators retain <strong>moral rights</strong> (e.g., to be named as author, to object to
+      derogatory treatment), even after assigning economic rights.
+    </li>
+  </ul>
+
+  <h4>Fair Dealing</h4>
+  <p>
+    Fair dealing permits limited use of copyrighted works without permission for
+    specific purposes, such as:
+  </p>
+  <ul>
+    <li>Research and private study</li>
+    <li>Education</li>
+    <li>Criticism and review</li>
+    <li>News reporting</li>
+    <li>Parody and satire</li>
+  </ul>
+  <p>The use must also be <strong>fair</strong> (considering purpose, amount, alternatives, etc.).</p>
+
+  <h3>2.3 Trademarks</h3>
+  <h4>What Trademarks Protect</h4>
+  <p>
+    A <strong>trademark</strong> is a sign that identifies and distinguishes the source of goods or services.
+    It can include:
+  </p>
+  <ul>
+    <li>Words, names, and slogans</li>
+    <li>Logos and symbols</li>
+    <li>Designs, shapes, colours, packaging</li>
+    <li>Sounds (and in some cases, other sensory marks)</li>
+  </ul>
+  <p>
+    Trademarks help consumers recognize your brand and prevent competitors
+    from using confusingly similar marks.
+  </p>
+
+  <h4>Purpose</h4>
+  <ul>
+    <li>Prevent consumer confusion</li>
+    <li>Protect business reputation and goodwill</li>
+    <li>Differentiate products and services in the marketplace</li>
+  </ul>
+
+  <h4>Rights &amp; Duration</h4>
+  <ul>
+    <li>Registration grants exclusive nationwide rights to use the trademark.</li>
+    <li>Initial registration period is typically <strong>10 years</strong>, renewable indefinitely.</li>
+    <li>Owners can sue for infringement or passing-off when others use confusingly similar marks.</li>
+  </ul>
+
+  <h4>Loss of Trademark Protection</h4>
+  <ul>
+    <li><strong>Genericide</strong>: when a mark becomes the generic name of a product (e.g., “kleenex”).</li>
+    <li><strong>Abandonment</strong>: when the trademark is not used for a prolonged period.</li>
+  </ul>
+
+  <h3>2.4 Patents</h3>
+  <h4>What Patents Protect</h4>
+  <p>
+    A <strong>patent</strong> protects <strong>new, useful, and inventive</strong> inventions. These may include:
+  </p>
+  <ul>
+    <li>New products or devices</li>
+    <li>New processes or methods</li>
+    <li>Improvements to existing inventions</li>
+  </ul>
+  <p>Patents protect the <strong>functionality</strong> of an invention, not its appearance.</p>
+
+  <h4>Requirements for Patentability</h4>
+  <p>An invention generally must be:</p>
+  <ul>
+    <li><strong>Novel</strong> – not previously disclosed anywhere in the world</li>
+    <li><strong>Useful</strong> – it works and has a practical application</li>
+    <li><strong>Non-obvious</strong> – not obvious to a skilled person in the field</li>
+    <li><strong>Fully disclosed</strong> – enough detail so others can understand and reproduce it</li>
+  </ul>
+
+  <h4>Patent Rights &amp; Duration</h4>
+  <ul>
+    <li>
+      A patent grants a <strong>20-year monopoly</strong> (from the filing date) to make, use, sell, or import
+      the invention.
+    </li>
+    <li>Patents can be sold or licensed to others for royalties.</li>
+    <li>They help recoup R&amp;D costs and secure competitive advantage.</li>
+  </ul>
+
+  <h4>Not Patentable</h4>
+  <ul>
+    <li>Abstract ideas, scientific theories, and mathematical formulas</li>
+    <li>Computer programs “as such” (in Canada, subject to specific rules)</li>
+    <li>Purely aesthetic designs (covered by industrial design, not patents)</li>
+    <li>Inventions with illegal or immoral purposes</li>
+  </ul>
+
+  <h3>2.5 Trade Secrets</h3>
+  <h4>What Trade Secrets Are</h4>
+  <p>
+    A <strong>trade secret</strong> is confidential business information that has
+    economic value because it is secret and provides a competitive advantage.
+  </p>
+  <p>Examples:</p>
+  <ul>
+    <li>Recipes and formulas (e.g., a soft drink formula)</li>
+    <li>Proprietary algorithms and models</li>
+    <li>Manufacturing processes and methods</li>
+    <li>Customer lists, pricing strategies, and market intelligence</li>
+    <li>Internal operating procedures and “know-how”</li>
+  </ul>
+
+  <h4>Requirements</h4>
+  <p>To qualify as a trade secret, information must be:</p>
+  <ul>
+    <li><strong>Secret</strong> – not generally known or easily discoverable</li>
+    <li><strong>Valuable</strong> – provides real or potential commercial advantage</li>
+    <li>
+      <strong>Protected</strong> – subject to reasonable measures such as NDAs, security,
+      and access restrictions
+    </li>
+  </ul>
+
+  <h4>Protection Method &amp; Duration</h4>
+  <ul>
+    <li>No formal registration; protection is through secrecy and contracts.</li>
+    <li>Enforced through breach-of-confidence or contractual claims.</li>
+    <li>Can last <strong>indefinitely</strong>, as long as the information remains secret.</li>
+  </ul>
+
+  <h3>2.6 Quick Comparison Chart</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>IP Type</th>
+        <th>Protects</th>
+        <th>How You Get It</th>
+        <th>Duration</th>
+        <th>Primary Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Copyright</strong></td>
+        <td>Creative expression (texts, code, art, music, etc.)</td>
+        <td>Automatic upon creation</td>
+        <td>Life of author + 70 years</td>
+        <td>Protect artistic and literary works</td>
+      </tr>
+      <tr>
+        <td><strong>Trademark</strong></td>
+        <td>Brand identifiers (names, logos, slogans)</td>
+        <td>Use + registration (strongly recommended)</td>
+        <td>10 years, renewable indefinitely</td>
+        <td>Distinguish goods/services and prevent confusion</td>
+      </tr>
+      <tr>
+        <td><strong>Patent</strong></td>
+        <td>New, useful, non-obvious inventions</td>
+        <td>Application and examination</td>
+        <td>20 years from filing</td>
+        <td>Encourage innovation and protect investment</td>
+      </tr>
+      <tr>
+        <td><strong>Trade Secret</strong></td>
+        <td>Confidential, valuable business information</td>
+        <td>Keep it secret + contracts and security</td>
+        <td>Unlimited (while secret)</td>
+        <td>Maintain competitive advantage</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="summary">
+    <strong>Chapter 2 Summary:</strong> Copyright protects creative
+    expression; trademarks protect brand identity; patents protect
+    functional inventions; and trade secrets protect valuable confidential
+    business information. Together, these IP regimes transform mental
+    effort into protected, exploitable assets.
+  </div>
+
+  <!-- ===================== CHAPTER 3 ===================== -->
+  <h2 class="chapter-title">Chapter 3 — Cybercrime &amp; Cybersecurity</h2>
+
+  <h3>3.1 What Is Cybercrime?</h3>
+  <p>
+    <strong>Cybercrime</strong> includes any crime where computers, networks, or digital
+    systems play a <strong>central role</strong>—either as the target of the attack
+    or as the tool used to commit the offence.
+  </p>
+
+  <h4>Two Major Categories</h4>
+  <ol>
+    <li>
+      <strong>Technology-as-Target</strong><br />
+      Crimes that directly target systems or data:
+      <ul>
+        <li>Hacking and unauthorized access</li>
+        <li>Malware and ransomware attacks</li>
+        <li>Denial-of-service (DoS) and distributed DoS (DDoS)</li>
+        <li>Botnets and large-scale automated attacks</li>
+        <li>Supply-chain attacks and long-term intrusions</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Technology-as-Instrument</strong><br />
+      Traditional crimes carried out using digital means:
+      <ul>
+        <li>Online fraud and phishing schemes</li>
+        <li>Identity theft and credential theft</li>
+        <li>Harassment, cyberbullying, and exploitation</li>
+        <li>Money laundering and trafficking facilitated by digital tools</li>
+        <li>Intellectual property theft and piracy</li>
+      </ul>
+    </li>
+  </ol>
+  <p>
+    As technology becomes embedded in everyday life, the scale and impact
+    of cybercrime continue to grow.
+  </p>
+
+  <h3>3.2 Evolution of Modern Fraud</h3>
+  <p>
+    Fraud has shifted from traditional, in-person scams to highly scalable,
+    <strong>online and automated schemes</strong>, often aided by AI and social media.
+  </p>
+  <p>Common modern fraud types include:</p>
+  <ul>
+    <li>Cryptocurrency and online investment scams</li>
+    <li>Emergency or “grandparent” scams</li>
+    <li>Job and employment scams (money mule schemes)</li>
+    <li>Tech-support fraud and fake service providers</li>
+    <li>Phishing, smishing (SMS), and vishing (voice phishing)</li>
+  </ul>
+
+  <h3>3.3 Vishing (Voice Phishing)</h3>
+  <p>
+    <strong>Vishing</strong> uses phone calls or voice messages (sometimes AI-generated)
+    to trick victims into revealing sensitive information or sending money.
+  </p>
+  <p>Typical vishing techniques:</p>
+  <ul>
+    <li>Impersonating banks, government agencies, or tech support</li>
+    <li>Using spoofed caller IDs to appear legitimate</li>
+    <li>Creating urgency (“act now or your account will be frozen”)</li>
+    <li>Exploiting emotions, especially in “emergency” or “grandparent” scams</li>
+  </ul>
+  <p>Red flags include unexpected calls demanding money or data, pressure tactics, and requests for passwords or banking details.</p>
+
+  <h3>3.4 Common Cyber Threats</h3>
+  <p>Key threats for individuals and organizations:</p>
+  <ul>
+    <li>Phishing emails and malicious links</li>
+    <li>Malware, including spyware and ransomware</li>
+    <li>Weak or reused passwords</li>
+    <li>Unsafe use of public Wi-Fi</li>
+    <li>Unpatched or outdated software</li>
+    <li>Identity theft and account takeover</li>
+    <li>Social engineering attacks</li>
+  </ul>
+  <p>
+    Cybersecurity requires both strong technical controls and informed, cautious
+    human behaviour.
+  </p>
+
+  <h3>3.5 Ransomware &amp; Business Protection</h3>
+  <p>
+    <strong>Ransomware</strong> is malware that encrypts data or locks systems and demands
+    a ransom (often in cryptocurrency) for decryption.
+  </p>
+
+  <h4>Prevention Measures</h4>
+  <ul>
+    <li>Strong, unique passwords and multi-factor authentication (MFA)</li>
+    <li>Regular software updates and security patches</li>
+    <li>Disabling or limiting risky features like macros in documents</li>
+    <li>Using antivirus, firewalls, and endpoint protection</li>
+    <li>Network segmentation and least-privilege access control</li>
+    <li>Continuous employee training to recognize phishing and scams</li>
+    <li>
+      Routine <strong>offline or segregated backups</strong> of critical data, tested regularly
+      for restoration
+    </li>
+    <li>Documented incident response plans</li>
+  </ul>
+
+  <h4>If an Attack Happens</h4>
+  <ul>
+    <li>Immediately disconnect affected systems from the network.</li>
+    <li>Do <strong>not</strong> pay the ransom impulsively; payment is not guaranteed to work.</li>
+    <li>Contact cybersecurity professionals and relevant authorities.</li>
+    <li>Report the incident to law enforcement and, where required, regulators.</li>
+    <li>Use clean backups to restore systems after the environment is secured.</li>
+  </ul>
+
+  <h3>3.6 Privacy Law &amp; Cybersecurity</h3>
+  <p>
+    Privacy laws require organizations to implement reasonable safeguards to protect
+    personal information. Cybersecurity failures can become
+    <strong>privacy violations</strong> leading to:
+  </p>
+  <ul>
+    <li>Regulatory investigations</li>
+    <li>Fines or penalties (where applicable)</li>
+    <li>Civil lawsuits and class actions</li>
+    <li>Reputational damage and loss of customer trust</li>
+  </ul>
+  <p>
+    Good cybersecurity is therefore both a technical necessity and a legal requirement.
+  </p>
+
+  <div class="summary">
+    <strong>Chapter 3 Summary:</strong> Cybercrime uses digital systems both as a
+    direct target and as tools for fraud, theft, and harassment. Modern threats—
+    including phishing, vishing, and ransomware—require strong technical safeguards,
+    well-trained users, and robust incident response. Cybersecurity and privacy
+    compliance are deeply interconnected.
+  </div>
+
+  <!-- ===================== FLASHCARDS ===================== -->
+  <section id="flashcards">
+    <h2>Flashcards</h2>
+    <p class="fc-intro">Practice quick-check MCQs and True/False across all chapters, or focus on your missed cards.</p>
+
+    <div class="fc-controls">
+      <div class="fc-select-wrapper">
+        <select class="fc-select" id="fc-deckSelect">
+          <option value="all">All Questions – MCQ + True/False</option>
+          <option value="ch1">Chapter 1 – Privacy & Confidentiality (MCQ)</option>
+          <option value="ch2">Chapter 2 – Intellectual Property (MCQ)</option>
+          <option value="ch3">Chapter 3 – Cybercrime & Cybersecurity (MCQ)</option>
+          <option value="tf">True / False (All Chapters)</option>
+          <option id="fc-failedOption" value="failed" disabled>Failed cards (0)</option>
+        </select>
+      </div>
+      <span class="fc-pill">
+        <span class="dot"></span>
+        <span id="fc-deckMeta">20 cards · MCQ</span>
+      </span>
+    </div>
+
+    <div class="fc-card" id="fc-card">
+      <div class="fc-card-header">
+        <span class="fc-badge" id="fc-badgeText">Chapter 1 · MCQ</span>
+        <span class="fc-index" id="fc-indexLabel">1 / 20</span>
+      </div>
+
+      <div class="fc-question">
+        <div class="fc-question-text" id="fc-questionText"></div>
+        <ul class="fc-options" id="fc-optionsList"></ul>
+      </div>
+
+      <div class="fc-footer">
+        <div class="fc-nav">
+          <button class="fc-btn" id="fc-prevBtn" type="button"><span class="icon">◀</span> Prev</button>
+          <button class="fc-btn" id="fc-nextBtn" type="button">Next <span class="icon">▶</span></button>
+          <button class="fc-btn" id="fc-removeFailedBtn" type="button" title="Remove this card from the failed list">
+            <span class="icon">✕</span> Remove from Failed
+          </button>
+        </div>
+        <div class="fc-meta">
+          <span id="fc-qTypeMeta">MCQ</span>
+          <span class="dot"></span>
+          <span id="fc-hintMeta">Tap an option to highlight the correct choice.</span>
+          <span class="dot"></span>
+          <span id="fc-statsLabel">Correct 0 / 0</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Fold/unfold chapters
+  (function chapterFold() {
+    const main = document.querySelector("main");
+    const flashcardsSection = document.getElementById("flashcards");
+    if (!main) return;
+
+    const headers = [...main.querySelectorAll("h2.chapter-title")];
+    headers.forEach((header, idx) => {
+      const body = document.createElement("div");
+      body.className = "chapter-body";
+      const nextHeader = headers[idx + 1];
+
+      // Move nodes until the next chapter header or flashcards section
+      let cursor = header.nextSibling;
+      while (cursor && cursor !== nextHeader && cursor !== flashcardsSection) {
+        const next = cursor.nextSibling;
+        body.appendChild(cursor);
+        cursor = next;
+      }
+
+      header.after(body);
+      header.classList.add("chapter-toggle");
+      header.setAttribute("role", "button");
+      header.setAttribute("aria-expanded", "true");
+      header.tabIndex = 0;
+
+      // Default folded
+      body.classList.add("collapsed");
+      header.classList.add("collapsed");
+      header.setAttribute("aria-expanded", "false");
+
+      const toggle = () => {
+        const collapsed = body.classList.toggle("collapsed");
+        header.classList.toggle("collapsed", collapsed);
+        header.setAttribute("aria-expanded", (!collapsed).toString());
+      };
+
+      header.addEventListener("click", toggle);
+      header.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
+  })();
+</script>
+
+<script>
+  (function flashcardsModule() {
+    const decks = {
+      ch1: {
+        label: "Chapter 1 – Privacy & Confidentiality (MCQ)",
+        badge: "Chapter 1 · MCQ",
+        type: "MCQ",
+        cards: [
+          {
+            q: "Which of the following best defines privacy?",
+            options: [
+              "A. Duty to protect business information",
+              "B. Individual’s right to control their personal information",
+              "C. Obligation to protect trade secrets",
+              "D. Government right to access information"
+            ],
+            answer: "B. Individual’s right to control their personal information"
+          },
+          {
+            q: "Confidentiality protects:",
+            options: [
+              "A. Personal information only",
+              "B. The individual",
+              "C. Information shared in trust",
+              "D. Information already in the public domain"
+            ],
+            answer: "C. Information shared in trust"
+          },
+          {
+            q: "Which law governs personal information handling in the federal public sector?",
+            options: [
+              "A. PIPA",
+              "B. FIPPA",
+              "C. PIPEDA",
+              "D. Privacy Act"
+            ],
+            answer: "D. Privacy Act"
+          },
+          {
+            q: "PIPEDA applies to:",
+            options: [
+              "A. Federal government institutions only",
+              "B. Private-sector organizations engaged in commercial activities",
+              "C. Public schools",
+              "D. Municipal governments"
+            ],
+            answer: "B. Private-sector organizations engaged in commercial activities"
+          },
+          {
+            q: "Which is NOT a privacy right under Canadian law?",
+            options: [
+              "A. Right to access personal information",
+              "B. Right to correct personal information",
+              "C. Right to delete all organizational data in every circumstance",
+              "D. Right to withdraw consent (with limits)"
+            ],
+            answer: "C. Right to delete all organizational data in every circumstance"
+          },
+          {
+            q: "Confidentiality duties arise from all EXCEPT:",
+            options: [
+              "A. NDAs",
+              "B. Professional codes",
+              "C. Implied trust relationships",
+              "D. Copyright registration"
+            ],
+            answer: "D. Copyright registration"
+          },
+          {
+            q: "Which is NOT an example of confidential information?",
+            options: [
+              "A. Client lists",
+              "B. Internal business strategies",
+              "C. Public stock prices",
+              "D. Algorithms"
+            ],
+            answer: "C. Public stock prices"
+          },
+          {
+            q: "A trade secret must:",
+            options: [
+              "A. Be registered with the government",
+              "B. Be kept secret and have commercial value",
+              "C. Be disclosed annually",
+              "D. Expire after 20 years"
+            ],
+            answer: "B. Be kept secret and have commercial value"
+          },
+          {
+            q: "Which element is required for breach of confidence?",
+            options: [
+              "A. Information was patented",
+              "B. Information was confidential",
+              "C. Information was published",
+              "D. Information was trademarked"
+            ],
+            answer: "B. Information was confidential"
+          },
+          {
+            q: "Which is a remedy for breach of confidence?",
+            options: [
+              "A. Criminal imprisonment in every case",
+              "B. Patent invalidation",
+              "C. Injunction",
+              "D. Forced sale of assets"
+            ],
+            answer: "C. Injunction"
+          },
+          {
+            q: "Confidential information becomes a trade secret when:",
+            options: [
+              "A. It is copyrighted",
+              "B. It has economic value and secrecy is maintained",
+              "C. It is trademarked",
+              "D. It is widely distributed"
+            ],
+            answer: "B. It has economic value and secrecy is maintained"
+          },
+          {
+            q: "Privacy primarily protects:",
+            options: [
+              "A. Ideas",
+              "B. Individuals and their personal information",
+              "C. Contracts",
+              "D. Logos"
+            ],
+            answer: "B. Individuals and their personal information"
+          },
+          {
+            q: "Confidentiality is breached when:",
+            options: [
+              "A. Information is shared with authorization",
+              "B. Confidential info is misused or disclosed",
+              "C. Information is anonymized",
+              "D. Government requests it under law"
+            ],
+            answer: "B. Confidential info is misused or disclosed"
+          },
+          {
+            q: "Which law governs private-sector privacy in British Columbia?",
+            options: [
+              "A. PIPEDA",
+              "B. FIPPA",
+              "C. PIPA",
+              "D. Privacy Act"
+            ],
+            answer: "C. PIPA"
+          },
+          {
+            q: "Employee monitoring requires employers to:",
+            options: [
+              "A. Provide full anonymity to employees",
+              "B. Warn employees through clear policies",
+              "C. Avoid monitoring work emails",
+              "D. Allow unlimited personal device use at work"
+            ],
+            answer: "B. Warn employees through clear policies"
+          },
+          {
+            q: "Which is personal information?",
+            options: [
+              "A. Sales revenue of a company",
+              "B. IP address tied to a specific person",
+              "C. Company logo",
+              "D. Patent number"
+            ],
+            answer: "B. IP address tied to a specific person"
+          },
+          {
+            q: "The duty of confidentiality primarily protects:",
+            options: [
+              "A. The data or information itself",
+              "B. The person",
+              "C. The institution",
+              "D. The government"
+            ],
+            answer: "A. The data or information itself"
+          },
+          {
+            q: "Which organization oversees PIPEDA compliance?",
+            options: [
+              "A. BC Ombudsperson",
+              "B. Office of the Privacy Commissioner of Canada",
+              "C. Federal Treasury Board",
+              "D. Department of Justice"
+            ],
+            answer: "B. Office of the Privacy Commissioner of Canada"
+          },
+          {
+            q: "A trade secret lasts:",
+            options: [
+              "A. 10 years",
+              "B. 20 years",
+              "C. Until secrecy is lost",
+              "D. Until renewal by the government"
+            ],
+            answer: "C. Until secrecy is lost"
+          },
+          {
+            q: "Which is an example of breach of confidence?",
+            options: [
+              "A. Sharing public news from a website",
+              "B. Disclosing an NDA-protected formula to a competitor",
+              "C. Publishing copyright-free art",
+              "D. Using a generic business plan template"
+            ],
+            answer: "B. Disclosing an NDA-protected formula to a competitor"
+          }
+        ]
+      },
+
+      ch2: {
+        label: "Chapter 2 – Intellectual Property (MCQ)",
+        badge: "Chapter 2 · MCQ",
+        type: "MCQ",
+        cards: [
+          {
+            q: "Copyright protects:",
+            options: [
+              "A. Ideas",
+              "B. Functional inventions",
+              "C. Expressions fixed in a tangible form",
+              "D. Brand names"
+            ],
+            answer: "C. Expressions fixed in a tangible form"
+          },
+          {
+            q: "Copyright arises:",
+            options: [
+              "A. After registration with CIPO",
+              "B. Only when patented",
+              "C. Automatically when work is created",
+              "D. Only after the author dies"
+            ],
+            answer: "C. Automatically when work is created"
+          },
+          {
+            q: "Trademarks protect:",
+            options: [
+              "A. Mathematical formulas",
+              "B. Software algorithms",
+              "C. Brand identifiers",
+              "D. Manufacturing processes"
+            ],
+            answer: "C. Brand identifiers"
+          },
+          {
+            q: "Which of the following is patentable?",
+            options: [
+              "A. Pure ideas",
+              "B. Literary works",
+              "C. New and useful inventions",
+              "D. Personal information"
+            ],
+            answer: "C. New and useful inventions"
+          },
+          {
+            q: "Trade secrets require:",
+            options: [
+              "A. Public disclosure",
+              "B. Government registration",
+              "C. Reasonable secrecy measures",
+              "D. Filing with CIPO for approval"
+            ],
+            answer: "C. Reasonable secrecy measures"
+          },
+          {
+            q: "Patent duration in Canada is:",
+            options: [
+              "A. Life of the inventor + 70 years",
+              "B. 10 years",
+              "C. 20 years",
+              "D. Unlimited, with renewals"
+            ],
+            answer: "C. 20 years"
+          },
+          {
+            q: "Trademark protection lasts:",
+            options: [
+              "A. 20 years, non-renewable",
+              "B. 10 years, renewable indefinitely",
+              "C. 5 years, non-renewable",
+              "D. Life + 70 years"
+            ],
+            answer: "B. 10 years, renewable indefinitely"
+          },
+          {
+            q: "Copyright does NOT protect:",
+            options: [
+              "A. Books",
+              "B. Software code",
+              "C. Ideas",
+              "D. Artwork"
+            ],
+            answer: "C. Ideas"
+          },
+          {
+            q: "Which is a benefit of trademarks?",
+            options: [
+              "A. Prevent copying of inventions",
+              "B. Protect brand reputation and goodwill",
+              "C. Replace the need for patents",
+              "D. Create trade secrets automatically"
+            ],
+            answer: "B. Protect brand reputation and goodwill"
+          },
+          {
+            q: "Patent rights include:",
+            options: [
+              "A. Right to prevent others from using the invention",
+              "B. Right to moral attribution only",
+              "C. Right to parody the invention",
+              "D. No exclusive rights at all"
+            ],
+            answer: "A. Right to prevent others from using the invention"
+          },
+          {
+            q: "Which is NOT normally trademarkable?",
+            options: [
+              "A. A purely common surname with no distinctiveness",
+              "B. A logo",
+              "C. A distinctive product shape",
+              "D. A short sound"
+            ],
+            answer: "A. A purely common surname with no distinctiveness"
+          },
+          {
+            q: "Moral rights include:",
+            options: [
+              "A. Right to destroy a patent",
+              "B. Right to be credited as author and to protect integrity of the work",
+              "C. Right to seize trademarks",
+              "D. Right to remove trade secrets from contracts"
+            ],
+            answer: "B. Right to be credited as author and to protect integrity of the work"
+          },
+          {
+            q: "Passing-off protects:",
+            options: [
+              "A. Patent duration",
+              "B. Brand reputation from imitation and confusion",
+              "C. Trade secret registration",
+              "D. Privacy rights"
+            ],
+            answer: "B. Brand reputation from imitation and confusion"
+          },
+          {
+            q: "Which best describes a trade secret?",
+            options: [
+              "A. Patent-protected invention",
+              "B. Confidential information with economic value because it is secret",
+              "C. Registered industrial design",
+              "D. Publicly known formula"
+            ],
+            answer: "B. Confidential information with economic value because it is secret"
+          },
+          {
+            q: "Which is NOT required for a patent?",
+            options: [
+              "A. Novelty",
+              "B. Non-obviousness",
+              "C. Aesthetic design only",
+              "D. Utility (usefulness)"
+            ],
+            answer: "C. Aesthetic design only"
+          },
+          {
+            q: "Copyright duration for individuals in Canada is:",
+            options: [
+              "A. 10 years",
+              "B. 20 years",
+              "C. Life of the author + 70 years",
+              "D. Life of the author + 50 years (currently)"
+            ],
+            answer: "C. Life of the author + 70 years"
+          },
+          {
+            q: "Trademarks are primarily used to:",
+            options: [
+              "A. Protect artistic works",
+              "B. Distinguish goods and services in the marketplace",
+              "C. Protect chemical formulas",
+              "D. Prevent cyberattacks"
+            ],
+            answer: "B. Distinguish goods and services in the marketplace"
+          },
+          {
+            q: "A trade secret ends when:",
+            options: [
+              "A. It is used once",
+              "B. A lawsuit is filed",
+              "C. The information becomes public or loses secrecy",
+              "D. A patent on it expires"
+            ],
+            answer: "C. The information becomes public or loses secrecy"
+          },
+          {
+            q: "What typically protects the appearance (not function) of a product?",
+            options: [
+              "A. Patent",
+              "B. Industrial design registration",
+              "C. Copyright only, always",
+              "D. Trademark only"
+            ],
+            answer: "B. Industrial design registration"
+          },
+          {
+            q: "Which protects algorithms best in many cases?",
+            options: [
+              "A. Patent (if inventive & functional) or trade secret",
+              "B. Trademark",
+              "C. Copyright without any secrecy",
+              "D. Privacy law"
+            ],
+            answer: "A. Patent (if inventive & functional) or trade secret"
+          }
+        ]
+      },
+
+      ch3: {
+        label: "Chapter 3 – Cybercrime & Cybersecurity (MCQ)",
+        badge: "Chapter 3 · MCQ",
+        type: "MCQ",
+        cards: [
+          {
+            q: "Cybercrime includes crimes where computers are:",
+            options: [
+              "A. Optional tools",
+              "B. Unrelated to the offence",
+              "C. Central to the crime",
+              "D. Never involved in any way"
+            ],
+            answer: "C. Central to the crime"
+          },
+          {
+            q: "Technology-as-target includes:",
+            options: [
+              "A. Email fraud only",
+              "B. Investment scams",
+              "C. Hacking and DDoS attacks",
+              "D. Physical theft of paper files only"
+            ],
+            answer: "C. Hacking and DDoS attacks"
+          },
+          {
+            q: "Phishing aims to:",
+            options: [
+              "A. Physically steal hardware",
+              "B. Trick users into giving information or credentials",
+              "C. Edit system files for performance",
+              "D. Encrypt data for ransom directly"
+            ],
+            answer: "B. Trick users into giving information or credentials"
+          },
+          {
+            q: "Ransomware typically:",
+            options: [
+              "A. Deletes all data permanently",
+              "B. Encrypts files and demands payment for decryption",
+              "C. Steals physical devices",
+              "D. Blocks Wi-Fi signals only"
+            ],
+            answer: "B. Encrypts files and demands payment for decryption"
+          },
+          {
+            q: "Which is a social engineering method?",
+            options: [
+              "A. Firewall configuration",
+              "B. Power failure",
+              "C. Fake tech support calls",
+              "D. Hardware malfunction"
+            ],
+            answer: "C. Fake tech support calls"
+          },
+          {
+            q: "Vishing involves:",
+            options: [
+              "A. Fake websites",
+              "B. Voice-based fraud via phone or VoIP",
+              "C. Malware attachments in email",
+              "D. Encryption techniques"
+            ],
+            answer: "B. Voice-based fraud via phone or VoIP"
+          },
+          {
+            q: "A common ransomware prevention method is:",
+            options: [
+              "A. Disable all internet use in the business",
+              "B. Maintain offline or segregated backups",
+              "C. Sell all servers and devices",
+              "D. Block all email communication"
+            ],
+            answer: "B. Maintain offline or segregated backups"
+          },
+          {
+            q: "Strong cybersecurity requires:",
+            options: [
+              "A. Only technical tools like firewalls",
+              "B. Only written policies",
+              "C. Both technology and user awareness/training",
+              "D. No training at all"
+            ],
+            answer: "C. Both technology and user awareness/training"
+          },
+          {
+            q: "Which is a sign of modern fraud evolution?",
+            options: [
+              "A. Fewer cyber scams each year",
+              "B. Move to phone-based scams only",
+              "C. Automation, cryptocurrency fraud, and AI use",
+              "D. Elimination of phishing emails"
+            ],
+            answer: "C. Automation, cryptocurrency fraud, and AI use"
+          },
+          {
+            q: "A red flag for vishing is:",
+            options: [
+              "A. Routine bank email newsletter",
+              "B. A random urgent call demanding payment or credentials",
+              "C. Receiving regular postal mail",
+              "D. Slow internet connection"
+            ],
+            answer: "B. A random urgent call demanding payment or credentials"
+          },
+          {
+            q: "Password best practice is to:",
+            options: [
+              "A. Use your birthday as a password",
+              "B. Use the same password for all accounts",
+              "C. Use strong, unique passwords per account",
+              "D. Write passwords on your desk"
+            ],
+            answer: "C. Use strong, unique passwords per account"
+          },
+          {
+            q: "Cybersecurity failures may lead to:",
+            options: [
+              "A. Privacy violations and legal consequences",
+              "B. Increased trademark rights",
+              "C. Patent extensions",
+              "D. Free internet access"
+            ],
+            answer: "A. Privacy violations and legal consequences"
+          },
+          {
+            q: "Technology-as-instrument includes:",
+            options: [
+              "A. Malware affecting only hardware",
+              "B. Identity theft and online fraud using computers",
+              "C. Server overheating from dust",
+              "D. Routine hardware repairs"
+            ],
+            answer: "B. Identity theft and online fraud using computers"
+          },
+          {
+            q: "Which is NOT a common cyber threat?",
+            options: [
+              "A. Phishing",
+              "B. Malware",
+              "C. Ransomware",
+              "D. Trademark registration"
+            ],
+            answer: "D. Trademark registration"
+          },
+          {
+            q: "Employee training helps prevent:",
+            options: [
+              "A. Equipment maintenance costs",
+              "B. Human-focused cyber attacks like phishing",
+              "C. Software patent disputes",
+              "D. Copyright licensing issues"
+            ],
+            answer: "B. Human-focused cyber attacks like phishing"
+          },
+          {
+            q: "A good incident response plan includes:",
+            options: [
+              "A. Routine deletion of all files weekly",
+              "B. Steps to detect, isolate, and recover from incidents",
+              "C. Changing trademarks after every email",
+              "D. Annual tax filing procedures"
+            ],
+            answer: "B. Steps to detect, isolate, and recover from incidents"
+          },
+          {
+            q: "Which behaviour reduces cyber risk?",
+            options: [
+              "A. Clicking unknown links",
+              "B. Avoiding updates",
+              "C. Using multi-factor authentication (MFA)",
+              "D. Using public Wi-Fi for banking"
+            ],
+            answer: "C. Using multi-factor authentication (MFA)"
+          },
+          {
+            q: "Ransom should NOT be paid because:",
+            options: [
+              "A. It is always illegal",
+              "B. Decryption is guaranteed by attackers",
+              "C. Attackers may not unlock data even after payment",
+              "D. Police require ransom not to be paid"
+            ],
+            answer: "C. Attackers may not unlock data even after payment"
+          },
+          {
+            q: "Cybercrime growth is driven by:",
+            options: [
+              "A. Decreased internet use",
+              "B. Automation, AI, and increased digital connectivity",
+              "C. Removal of online services",
+              "D. Fewer connected devices"
+            ],
+            answer: "B. Automation, AI, and increased digital connectivity"
+          },
+          {
+            q: "A privacy breach may occur when:",
+            options: [
+              "A. A company properly encrypts and protects data",
+              "B. Personal information is exposed without authorization",
+              "C. A logo is copied",
+              "D. A patent expires"
+            ],
+            answer: "B. Personal information is exposed without authorization"
+          }
+        ]
+      },
+
+      tf: {
+        label: "True / False (All Chapters)",
+        badge: "True / False · All Chapters",
+        type: "TF",
+        cards: [
+          { q: "Privacy protects individuals, while confidentiality protects information.", answer: "True" },
+          { q: "Trade secrets must be registered with the government to be protected.", answer: "False" },
+          { q: "Copyright protects ideas themselves.", answer: "False" },
+          { q: "Trademarks can protect logos and slogans.", answer: "True" },
+          { q: "A patent protects how an invention works.", answer: "True" },
+          { q: "A trade secret can last forever if it remains secret.", answer: "True" },
+          { q: "Phishing is an example of social engineering.", answer: "True" },
+          { q: "Ransomware encrypts data and demands payment.", answer: "True" },
+          { q: "PIPEDA applies only to federal government institutions.", answer: "False" },
+          { q: "Using strong, unique passwords improves cybersecurity.", answer: "True" },
+          { q: "Passing-off can protect unregistered trademarks.", answer: "True" },
+          { q: "Confidentiality and privacy mean exactly the same thing.", answer: "False" },
+          { q: "A vishing attack uses voice or phone calls to deceive victims.", answer: "True" },
+          { q: "Patents generally expire after 20 years in Canada.", answer: "True" },
+          { q: "Cybercrime includes identity theft.", answer: "True" },
+          { q: "Trademark protection cannot be renewed after it expires.", answer: "False" },
+          { q: "Copyright arises automatically when a work is created and fixed.", answer: "True" },
+          { q: "A cyber breach involving personal data can also be a privacy breach.", answer: "True" },
+          { q: "Trade secrets lose protection when they become public.", answer: "True" },
+          { q: "FIPPA governs private-sector businesses across all of Canada.", answer: "False" }
+        ]
+      }
+    };
+
+    const baseDeckKeys = ["ch1", "ch2", "ch3", "tf"];
+    const cardLookup = {};
+
+    function tagDeckCards() {
+      baseDeckKeys.forEach((key) => {
+        const deck = decks[key];
+        deck.cards = deck.cards.map((card, idx) => {
+          const id = `${key}-${idx}`;
+          const typedCard = {
+            ...card,
+            id,
+            type: card.type || deck.type || "MCQ",
+            sourceDeck: key
+          };
+          cardLookup[id] = typedCard;
+          return typedCard;
+        });
+      });
+    }
+
+    tagDeckCards();
+
+    const combinedCards = [
+      ...decks.ch1.cards.map(card => ({ ...card, type: "MCQ" })),
+      ...decks.ch2.cards.map(card => ({ ...card, type: "MCQ" })),
+      ...decks.ch3.cards.map(card => ({ ...card, type: "MCQ" })),
+      ...decks.tf.cards.map(card => ({ ...card, type: "TF" }))
+    ];
+
+    decks.all = {
+      label: "All Questions – MCQ + True/False",
+      badge: "All Questions · Mixed",
+      type: "MIXED",
+      cards: combinedCards
+    };
+
+    const deckSelect = document.getElementById("fc-deckSelect");
+    const failedOption = document.getElementById("fc-failedOption");
+    const deckMeta = document.getElementById("fc-deckMeta");
+    const badgeText = document.getElementById("fc-badgeText");
+    const indexLabel = document.getElementById("fc-indexLabel");
+    const questionText = document.getElementById("fc-questionText");
+    const optionsList = document.getElementById("fc-optionsList");
+    const cardEl = document.getElementById("fc-card");
+    const prevBtn = document.getElementById("fc-prevBtn");
+    const nextBtn = document.getElementById("fc-nextBtn");
+    const removeFailedBtn = document.getElementById("fc-removeFailedBtn");
+    const qTypeMeta = document.getElementById("fc-qTypeMeta");
+    const hintMeta = document.getElementById("fc-hintMeta");
+    const statsLabel = document.getElementById("fc-statsLabel");
+
+    if (!deckSelect || !cardEl) return;
+
+    let currentDeckKey = "all";
+    let currentIndex = 0;
+    let showAnswer = false;
+    let selectedOption = null;
+    let hasAnsweredCurrentCard = false;
+    const FAILED_STORAGE_KEY = "law_flashcards_failed_v1";
+    const failedCardIds = new Set();
+    let touchStartX = null;
+    let touchStartY = null;
+    const statsByDeck = {};
+
+    deckSelect.value = currentDeckKey;
+
+    function formatDeckType(type) {
+      if (type === "MCQ") return "MCQ";
+      if (type === "TF") return "True / False";
+      return "MCQ + True/False";
+    }
+
+    function normalizeText(value) {
+      return (value || "").toString().replace(/\s+/g, " ").trim().toLowerCase();
+    }
+
+    function getDeckStats(key) {
+      if (!statsByDeck[key]) {
+        statsByDeck[key] = { correct: 0, total: 0 };
+      }
+      return statsByDeck[key];
+    }
+
+    function updateStatsLabel() {
+      const stats = getDeckStats(currentDeckKey);
+      if (statsLabel) {
+        statsLabel.textContent = `Correct ${stats.correct} / ${stats.total}`;
+      }
+    }
+
+    function optionsForCard(cardType, card) {
+      if (cardType === "MCQ" && Array.isArray(card.options)) return card.options;
+      if (cardType === "TF") return ["True", "False"];
+      return [];
+    }
+
+    function persistFailedDeck() {
+      try {
+        localStorage.setItem(FAILED_STORAGE_KEY, JSON.stringify([...failedCardIds]));
+      } catch (err) {
+        // Ignore storage errors (e.g., privacy mode)
+      }
+    }
+
+    function hydrateFailedDeck() {
+      try {
+        const raw = localStorage.getItem(FAILED_STORAGE_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          parsed.forEach((id) => {
+            if (cardLookup[id]) failedCardIds.add(id);
+          });
+        }
+      } catch (err) {
+        // Ignore malformed storage
+      }
+    }
+
+    function refreshFailedDeck() {
+      const cards = Array.from(failedCardIds)
+        .map(id => cardLookup[id])
+        .filter(Boolean)
+        .map(card => ({ ...card }));
+
+      decks.failed = {
+        label: "Failed cards – retry",
+        badge: `Failed · ${cards.length} card${cards.length === 1 ? "" : "s"}`,
+        type: "MIXED",
+        cards
+      };
+
+      if (failedOption) {
+        failedOption.textContent = `Failed cards (${cards.length})`;
+        failedOption.disabled = cards.length === 0;
+      }
+
+      if (currentDeckKey === "failed" && cards.length === 0) {
+        setDeck("all");
+      }
+
+      if (currentDeckKey === "failed") {
+        updateDeckMeta();
+      }
+
+      persistFailedDeck();
+    }
+
+    function recordFailure(card, isCorrect) {
+      if (!card || isCorrect) return;
+      failedCardIds.add(card.id);
+      refreshFailedDeck();
+    }
+
+    function handleOptionSelect(optionValue) {
+      const deck = decks[currentDeckKey];
+      const card = deck.cards[currentIndex];
+      const isCorrect = normalizeText(optionValue) === normalizeText(card.answer);
+
+      if (!hasAnsweredCurrentCard) {
+        const stats = getDeckStats(currentDeckKey);
+        stats.total += 1;
+        if (isCorrect) stats.correct += 1;
+        updateStatsLabel();
+      }
+
+      hasAnsweredCurrentCard = true;
+      selectedOption = optionValue;
+      showAnswer = true;
+      recordFailure(card, isCorrect);
+      renderCard();
+    }
+
+    function removeCurrentFromFailed() {
+      if (currentDeckKey !== "failed") return;
+      const deck = decks.failed;
+      const card = deck.cards[currentIndex];
+      if (!card) return;
+      failedCardIds.delete(card.id);
+      refreshFailedDeck();
+
+      const remaining = decks.failed.cards.length;
+      if (remaining === 0) {
+        setDeck("all");
+        return;
+      }
+
+      currentIndex = Math.min(currentIndex, remaining - 1);
+      showAnswer = false;
+      selectedOption = null;
+      hasAnsweredCurrentCard = false;
+      renderCard();
+    }
+
+    function updateDeckMeta() {
+      const deck = decks[currentDeckKey];
+      if (!deck) return;
+      const total = deck.cards.length;
+      const typeLabel = formatDeckType(deck.type);
+      deckMeta.textContent = `${total} cards · ${typeLabel}`;
+      badgeText.textContent = deck.badge || deck.label || "Flashcards";
+    }
+
+    function renderCard() {
+      updateStatsLabel();
+      const deck = decks[currentDeckKey];
+      const card = deck.cards[currentIndex];
+      const total = deck.cards.length;
+
+      if (removeFailedBtn) {
+        const canRemove = currentDeckKey === "failed" && card && failedCardIds.has(card.id);
+        removeFailedBtn.disabled = !canRemove;
+        removeFailedBtn.style.opacity = canRemove ? "1" : "0.5";
+      }
+
+      if (!card) {
+        indexLabel.textContent = `0 / ${total}`;
+        questionText.textContent = "No cards to review.";
+        optionsList.innerHTML = "";
+        optionsList.style.display = "none";
+        qTypeMeta.textContent = "—";
+        hintMeta.textContent = "Answer incorrectly to add cards to the failed list.";
+        return;
+      }
+
+      const cardType = card.type || deck.type;
+      const options = optionsForCard(cardType, card);
+      const hasOptions = options.length > 0;
+
+      indexLabel.textContent = `${currentIndex + 1} / ${total}`;
+      questionText.textContent = card.q;
+
+      optionsList.innerHTML = "";
+      if (hasOptions) {
+        optionsList.style.display = "grid";
+        options.forEach(opt => {
+          const li = document.createElement("li");
+          li.textContent = opt;
+          li.className = "fc-option";
+          li.tabIndex = 0;
+
+          const isSelected = selectedOption === opt;
+          const isCorrect = normalizeText(opt) === normalizeText(card.answer);
+
+          if (isSelected) li.classList.add("selected");
+          if (showAnswer && isCorrect) li.classList.add("correct");
+          if (showAnswer && isSelected && !isCorrect) li.classList.add("incorrect");
+
+          const triggerSelect = () => handleOptionSelect(opt);
+          li.addEventListener("click", triggerSelect);
+          li.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              triggerSelect();
+            }
+          });
+
+          optionsList.appendChild(li);
+        });
+      } else {
+        optionsList.style.display = "none";
+      }
+
+      qTypeMeta.textContent = cardType === "TF" ? "True / False" : "MCQ";
+      hintMeta.textContent = hasOptions
+        ? "Tap an option to highlight the correct choice."
+        : "Highlights will show automatically.";
+    }
+
+    function setDeck(key) {
+      if (!decks[key]) return;
+      currentDeckKey = key;
+      currentIndex = 0;
+      showAnswer = false;
+      selectedOption = null;
+      hasAnsweredCurrentCard = false;
+      deckSelect.value = key;
+      updateDeckMeta();
+      updateStatsLabel();
+      renderCard();
+    }
+
+    deckSelect.addEventListener("change", (e) => {
+      setDeck(e.target.value);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      const deck = decks[currentDeckKey];
+      currentIndex = (currentIndex - 1 + deck.cards.length) % deck.cards.length;
+      showAnswer = false;
+      selectedOption = null;
+      hasAnsweredCurrentCard = false;
+      renderCard();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      const deck = decks[currentDeckKey];
+      currentIndex = (currentIndex + 1) % deck.cards.length;
+      showAnswer = false;
+      selectedOption = null;
+      hasAnsweredCurrentCard = false;
+      renderCard();
+    });
+
+    removeFailedBtn.addEventListener("click", removeCurrentFromFailed);
+
+    // Keyboard shortcuts: left/right arrows for navigation
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "ArrowRight") {
+        nextBtn.click();
+      } else if (e.code === "ArrowLeft") {
+        prevBtn.click();
+      }
+    });
+
+    // Swipe gestures: swipe left for next, right for previous
+    const swipeThreshold = 40;
+    cardEl.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) return;
+      const touch = e.touches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+    }, { passive: true });
+
+    cardEl.addEventListener("touchend", (e) => {
+      if (touchStartX === null || touchStartY === null) return;
+      if (e.changedTouches.length !== 1) {
+        touchStartX = null;
+        touchStartY = null;
+        return;
+      }
+
+      const touch = e.changedTouches[0];
+      const dx = touch.clientX - touchStartX;
+      const dy = touch.clientY - touchStartY;
+      touchStartX = null;
+      touchStartY = null;
+
+      const absX = Math.abs(dx);
+      const absY = Math.abs(dy);
+      if (absX > absY && absX > swipeThreshold) {
+        if (dx < 0) {
+          nextBtn.click();
+        } else {
+          prevBtn.click();
+        }
+      }
+    }, { passive: true });
+
+    // Initialize
+    hydrateFailedDeck();
+    refreshFailedDeck();
+    updateDeckMeta();
+    renderCard();
+  })();
+</script>
+</body>
+</html>
