@@ -49,6 +49,7 @@
       font-size: 0.9rem;
       color: #4b5563;
       transition: transform 0.16s ease;
+      margin-left: auto;
     }
     .chapter-toggle.collapsed::after {
       transform: rotate(-90deg);
@@ -90,9 +91,21 @@
       border-radius: 10px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
       background: #f9fafb;
       box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    .chapter-hint {
+      font-size: 0.92rem;
+      color: #6b7280;
+      background: #eef2ff;
+      border: 1px solid #d5d9e7;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-weight: 500;
     }
 
     /* --- Per-chapter themes --- */
@@ -1041,6 +1054,10 @@
       }
 
       header.after(body);
+      const hint = document.createElement("span");
+      hint.className = "chapter-hint";
+      hint.textContent = "Click header or double-click content to toggle";
+      header.appendChild(hint);
       header.classList.add("chapter-toggle");
       header.setAttribute("role", "button");
       header.setAttribute("aria-expanded", "true");
@@ -1058,6 +1075,8 @@
       };
 
       header.addEventListener("click", toggle);
+      // Also allow double-click anywhere in the body content to fold/unfold
+      body.addEventListener("dblclick", toggle);
       header.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -2082,4 +2101,3 @@
 </script>
 </body>
 </html>
-
