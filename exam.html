@@ -11,29 +11,29 @@
       line-height: 1.6;
       margin: 0;
       padding: 20px;
-      background: #f5f5f7;
-      color: #222;
+      background: radial-gradient(circle at top, #eef2ff 0, #f5f5f7 40%, #f9fafb 100%);
+      color: #1f2933;
     }
     main {
       max-width: 900px;
       margin: 0 auto;
-      background: #fff;
+      background: #ffffff;
       padding: 24px 20px 32px;
-      border-radius: 10px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.09);
     }
     h1, h2, h3, h4 {
       font-weight: 650;
-      color: #1b2a41;
+      color: #111827;
     }
     h1 {
       text-align: center;
       margin-top: 0;
       margin-bottom: 0.5em;
+      letter-spacing: 0.02em;
     }
     h2 {
       margin-top: 1.6em;
-      border-bottom: 2px solid #e0e4ec;
       padding-bottom: 0.2em;
     }
     .chapter-toggle {
@@ -65,11 +65,12 @@
     h4 {
       margin-top: 1em;
       font-size: 1.02rem;
+      color: #111827;
     }
     .subtitle {
       text-align: center;
       margin-bottom: 1.8em;
-      color: #555;
+      color: #4b5563;
       font-size: 0.98rem;
     }
     p {
@@ -85,21 +86,110 @@
       margin-top: 2.4em;
       font-size: 1.6rem;
       border-bottom: 3px solid #cfd4e6;
-      padding-bottom: 0.25em;
+      padding: 0.35em 0.6em 0.4em;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f9fafb;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
     }
+
+    /* --- Per-chapter themes --- */
+
+    /* Chapter 1 – soft blue */
+    .chapter-1 {
+      border-bottom-color: #bfdbfe;
+      background: linear-gradient(90deg, #eff6ff, #dbeafe);
+      color: #0f172a;
+    }
+    .chapter-1 + .chapter-body {
+      background: #f3f6ff;
+      border-radius: 12px;
+      border-left: 4px solid #3b82f6;
+      padding: 12px 16px 18px;
+      margin-top: 0.5em;
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.09);
+    }
+
+    /* Chapter 2 – teal / green */
+    .chapter-2 {
+      border-bottom-color: #a7f3d0;
+      background: linear-gradient(90deg, #ecfdf3, #ccfbf1);
+      color: #064e3b;
+    }
+    .chapter-2 + .chapter-body {
+      background: #ecfdf3;
+      border-radius: 12px;
+      border-left: 4px solid #10b981;
+      padding: 12px 16px 18px;
+      margin-top: 0.5em;
+      box-shadow: 0 10px 28px rgba(16, 185, 129, 0.09);
+    }
+
+    /* Chapter 3 – purple */
+    .chapter-3 {
+      border-bottom-color: #ddd6fe;
+      background: linear-gradient(90deg, #f5f3ff, #e0e7ff);
+      color: #312e81;
+    }
+    .chapter-3 + .chapter-body {
+      background: #f5f3ff;
+      border-radius: 12px;
+      border-left: 4px solid #8b5cf6;
+      padding: 12px 16px 18px;
+      margin-top: 0.5em;
+      box-shadow: 0 10px 28px rgba(139, 92, 246, 0.09);
+    }
+
     .summary {
-      background: #f0f4ff;
-      border-left: 4px solid #4c6fff;
-      padding: 0.8em 1em;
+      padding: 0.9em 1em;
       margin: 1.4em 0;
-      border-radius: 6px;
+      border-radius: 10px;
       font-size: 0.95rem;
+      display: flex;
+      gap: 0.6em;
+      align-items: flex-start;
     }
+    .summary::before {
+      content: "★";
+      font-size: 1rem;
+      margin-top: 2px;
+    }
+    .summary-ch1 {
+      background: #e0ecff;
+      border-left: 4px solid #2563eb;
+      color: #0f172a;
+    }
+    .summary-ch1::before {
+      color: #2563eb;
+    }
+    .summary-ch2 {
+      background: #d1fae5;
+      border-left: 4px solid #059669;
+      color: #064e3b;
+    }
+    .summary-ch2::before {
+      color: #059669;
+    }
+    .summary-ch3 {
+      background: #e9d5ff;
+      border-left: 4px solid #7c3aed;
+      color: #2e1065;
+    }
+    .summary-ch3::before {
+      color: #7c3aed;
+    }
+
     table {
       border-collapse: collapse;
       width: 100%;
       margin: 1em 0;
       font-size: 0.95rem;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+      background: #f9fafb;
     }
     th, td {
       border: 1px solid #d0d4e0;
@@ -108,14 +198,19 @@
       vertical-align: top;
     }
     th {
-      background: #eef1fb;
+      background: linear-gradient(90deg, #e0f2fe, #e5e7eb);
       font-weight: 600;
+      color: #0f172a;
     }
+    tr:nth-child(even) td {
+      background: #f3f4f6;
+    }
+
     code {
       font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
         "Courier New", monospace;
       font-size: 0.9rem;
-      background: #f3f3f6;
+      background: #f3f4ff;
       padding: 1px 4px;
       border-radius: 4px;
     }
@@ -124,11 +219,11 @@
     #flashcards {
       margin-top: 2.4em;
       padding: 18px 16px 22px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #0f172a, #0a1024 60%, #050912);
+      border-radius: 16px;
+      background: linear-gradient(135deg, #020617, #020617 40%, #020617 100%);
       color: #e5e7eb;
       border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
     }
 
     #flashcards h2 {
@@ -371,498 +466,504 @@
   </p>
 
   <!-- ===================== CHAPTER 1 ===================== -->
-  <h2 class="chapter-title">Chapter 1 — Privacy &amp; Confidentiality</h2>
+  <h2 class="chapter-title chapter-1">Chapter 1 — Privacy &amp; Confidentiality</h2>
 
-  <h3>1.1 What Is Privacy?</h3>
-  <p>
-    <strong>Privacy</strong> is an individual’s legal right to control how their
-    <strong>personal information</strong> is collected, used, stored, and disclosed.
-  </p>
-  <p>Examples of personal information include:</p>
-  <ul>
-    <li>Name, address, phone number, identification numbers</li>
-    <li>Medical and health records</li>
-    <li>Financial data and banking details</li>
-    <li>Employment information</li>
-    <li>Online identifiers and browsing or location data</li>
-  </ul>
-  <p>
-    Privacy laws (e.g., the <em>Privacy Act</em>, <em>PIPEDA</em>, provincial
-    privacy statutes) regulate how organizations and public bodies handle this information.
-  </p>
+  <div>
+    <h3>1.1 What Is Privacy?</h3>
+    <p>
+      <strong>Privacy</strong> is an individual’s legal right to control how their
+      <strong>personal information</strong> is collected, used, stored, and disclosed.
+    </p>
+    <p>Examples of personal information include:</p>
+    <ul>
+      <li>Name, address, phone number, identification numbers</li>
+      <li>Medical and health records</li>
+      <li>Financial data and banking details</li>
+      <li>Employment information</li>
+      <li>Online identifiers and browsing or location data</li>
+    </ul>
+    <p>
+      Privacy laws (e.g., the <em>Privacy Act</em>, <em>PIPEDA</em>, provincial
+      privacy statutes) regulate how organizations and public bodies handle this information.
+    </p>
 
-  <h4>Key Privacy Rights</h4>
-  <p>Individuals typically have rights to:</p>
-  <ul>
-    <li>Access their personal information held by an organization</li>
-    <li>Request corrections to inaccurate or incomplete data</li>
-    <li>Know why their data is being collected and how it will be used</li>
-    <li>Give or withdraw consent (subject to legal limits)</li>
-    <li>File complaints with privacy commissioners or regulators</li>
-  </ul>
-  <p>
-    Privacy places obligations on institutions to ensure data is handled
-    <strong>fairly, transparently, and securely</strong>.
-  </p>
+    <h4>Key Privacy Rights</h4>
+    <p>Individuals typically have rights to:</p>
+    <ul>
+      <li>Access their personal information held by an organization</li>
+      <li>Request corrections to inaccurate or incomplete data</li>
+      <li>Know why their data is being collected and how it will be used</li>
+      <li>Give or withdraw consent (subject to legal limits)</li>
+      <li>File complaints with privacy commissioners or regulators</li>
+    </ul>
+    <p>
+      Privacy places obligations on institutions to ensure data is handled
+      <strong>fairly, transparently, and securely</strong>.
+    </p>
 
-  <h3>1.2 What Is Confidentiality?</h3>
-  <p>
-    <strong>Confidentiality</strong> is a <strong>duty or obligation</strong> to keep
-    certain information secret. It applies to <em>any information</em> shared in
-    confidence, not only personal information.
-  </p>
-  <p>Examples of information that may be confidential:</p>
-  <ul>
-    <li>Client lists and customer data</li>
-    <li>Business strategies and marketing plans</li>
-    <li>Internal processes, formulas, methods</li>
-    <li>Medical, legal, or counselling records</li>
-    <li>Proprietary research and data shared under NDA</li>
-  </ul>
-  <p>Confidentiality duties may arise from:</p>
-  <ul>
-    <li>Contracts (e.g., non-disclosure agreements, employment contracts)</li>
-    <li>Professional codes (lawyers, doctors, accountants, therapists)</li>
-    <li>Implied business relationships and fiduciary obligations</li>
-  </ul>
+    <h3>1.2 What Is Confidentiality?</h3>
+    <p>
+      <strong>Confidentiality</strong> is a <strong>duty or obligation</strong> to keep
+      certain information secret. It applies to <em>any information</em> shared in
+      confidence, not only personal information.
+    </p>
+    <p>Examples of information that may be confidential:</p>
+    <ul>
+      <li>Client lists and customer data</li>
+      <li>Business strategies and marketing plans</li>
+      <li>Internal processes, formulas, methods</li>
+      <li>Medical, legal, or counselling records</li>
+      <li>Proprietary research and data shared under NDA</li>
+    </ul>
+    <p>Confidentiality duties may arise from:</p>
+    <ul>
+      <li>Contracts (e.g., non-disclosure agreements, employment contracts)</li>
+      <li>Professional codes (lawyers, doctors, accountants, therapists)</li>
+      <li>Implied business relationships and fiduciary obligations</li>
+    </ul>
 
-  <h4>Privacy vs. Confidentiality</h4>
-  <ul>
-    <li><strong>Privacy</strong> protects <em>individuals</em> and their personal information.</li>
-    <li><strong>Confidentiality</strong> protects <em>information</em> that is shared in trust.</li>
-  </ul>
-  <p>They often overlap but are <strong>not the same concept</strong>.</p>
+    <h4>Privacy vs. Confidentiality</h4>
+    <ul>
+      <li><strong>Privacy</strong> protects <em>individuals</em> and their personal information.</li>
+      <li><strong>Confidentiality</strong> protects <em>information</em> that is shared in trust.</li>
+    </ul>
+    <p>They often overlap but are <strong>not the same concept</strong>.</p>
 
-  <h3>1.3 Confidential Information &amp; Trade Secrets</h3>
-  <p>
-    <strong>Confidential information</strong> is information that is not publicly available
-    and is shared with an expectation that it will be kept private.
-  </p>
-  <p>
-    Confidential information becomes a <strong>trade secret</strong> when it meets
-    three conditions:
-  </p>
-  <ul>
-    <li>It has real or potential <strong>commercial value</strong>.</li>
-    <li>It is <strong>not publicly known or easily obtainable</strong>.</li>
-    <li>
-      It is protected by <strong>reasonable measures</strong> (e.g., NDAs, restricted
-      access, security policies).
-    </li>
-  </ul>
-  <p>Examples of trade secrets:</p>
-  <ul>
-    <li>Formulas and recipes (e.g., a cola recipe)</li>
-    <li>Algorithms and source code</li>
-    <li>Manufacturing processes and methods</li>
-    <li>Strategic customer lists and pricing models</li>
-    <li>Internal “know-how” and workflows</li>
-  </ul>
-  <p>
-    Trade secrets can last <strong>indefinitely</strong> as long as secrecy is maintained.
-  </p>
+    <h3>1.3 Confidential Information &amp; Trade Secrets</h3>
+    <p>
+      <strong>Confidential information</strong> is information that is not publicly available
+      and is shared with an expectation that it will be kept private.
+    </p>
+    <p>
+      Confidential information becomes a <strong>trade secret</strong> when it meets
+      three conditions:
+    </p>
+    <ul>
+      <li>It has real or potential <strong>commercial value</strong>.</li>
+      <li>It is <strong>not publicly known or easily obtainable</strong>.</li>
+      <li>
+        It is protected by <strong>reasonable measures</strong> (e.g., NDAs, restricted
+        access, security policies).
+      </li>
+    </ul>
+    <p>Examples of trade secrets:</p>
+    <ul>
+      <li>Formulas and recipes (e.g., a cola recipe)</li>
+      <li>Algorithms and source code</li>
+      <li>Manufacturing processes and methods</li>
+      <li>Strategic customer lists and pricing models</li>
+      <li>Internal “know-how” and workflows</li>
+    </ul>
+    <p>
+      Trade secrets can last <strong>indefinitely</strong> as long as secrecy is maintained.
+    </p>
 
-  <h3>1.4 Breach of Confidence (Legal Test)</h3>
-  <p>
-    A <strong>breach of confidence</strong> occurs when confidential information is misused
-    or disclosed without consent or authority.
-  </p>
-  <p>Courts generally require proof that:</p>
-  <ol>
-    <li>The information was <strong>confidential</strong> in nature.</li>
-    <li>It was <strong>communicated in confidence</strong> (explicitly or implicitly).</li>
-    <li>
-      It was <strong>misused</strong> or disclosed by the person to whom it was communicated,
-      causing or risking harm.
-    </li>
-  </ol>
-  <p>Possible remedies include:</p>
-  <ul>
-    <li>Injunctions (to stop further misuse or disclosure)</li>
-    <li>Damages (compensation)</li>
-    <li>Accounting of profits (disgorging profits made through misuse)</li>
-  </ul>
+    <h3>1.4 Breach of Confidence (Legal Test)</h3>
+    <p>
+      A <strong>breach of confidence</strong> occurs when confidential information is misused
+      or disclosed without consent or authority.
+    </p>
+    <p>Courts generally require proof that:</p>
+    <ol>
+      <li>The information was <strong>confidential</strong> in nature.</li>
+      <li>It was <strong>communicated in confidence</strong> (explicitly or implicitly).</li>
+      <li>
+        It was <strong>misused</strong> or disclosed by the person to whom it was communicated,
+        causing or risking harm.
+      </li>
+    </ol>
+    <p>Possible remedies include:</p>
+    <ul>
+      <li>Injunctions (to stop further misuse or disclosure)</li>
+      <li>Damages (compensation)</li>
+      <li>Accounting of profits (disgorging profits made through misuse)</li>
+    </ul>
 
-  <div class="summary">
-    <strong>Chapter 1 Summary:</strong> Privacy is a legal right protecting
-    individuals’ personal information; confidentiality is a duty to keep information
-    shared in trust secret. Trade secrets are valuable confidential business
-    information, protected indefinitely as long as secrecy is preserved, and
-    breaches can lead to legal action for breach of confidence.
+    <div class="summary summary-ch1">
+      <strong>Chapter 1 Summary:</strong> Privacy is a legal right protecting
+      individuals’ personal information; confidentiality is a duty to keep information
+      shared in trust secret. Trade secrets are valuable confidential business
+      information, protected indefinitely as long as secrecy is preserved, and
+      breaches can lead to legal action for breach of confidence.
+    </div>
   </div>
 
   <!-- ===================== CHAPTER 2 ===================== -->
-  <h2 class="chapter-title">Chapter 2 — Intellectual Property (IP)</h2>
+  <h2 class="chapter-title chapter-2">Chapter 2 — Intellectual Property (IP)</h2>
 
-  <h3>2.1 What Is Intellectual Property?</h3>
-  <p>
-    <strong>Intellectual property (IP)</strong> refers to <strong>creations of the mind</strong>:
-    inventions, creative works, brand identifiers, confidential business information,
-    and know-how.
-  </p>
-  <p>
-    Because IP is <strong>intangible</strong>, it requires special legal protection to prevent
-    others from copying, stealing, or misusing it.
-  </p>
-  <p>IP rights:</p>
-  <ul>
-    <li>Prove ownership of creations</li>
-    <li>Give creators exclusive control and economic benefit</li>
-    <li>Encourage innovation and creativity</li>
-  </ul>
-  <p>The four core categories of IP in this tutorial are:</p>
-  <ul>
-    <li><strong>Copyright</strong></li>
-    <li><strong>Trademarks</strong></li>
-    <li><strong>Patents</strong></li>
-    <li><strong>Trade secrets</strong></li>
-  </ul>
+  <div>
+    <h3>2.1 What Is Intellectual Property?</h3>
+    <p>
+      <strong>Intellectual property (IP)</strong> refers to <strong>creations of the mind</strong>:
+      inventions, creative works, brand identifiers, confidential business information,
+      and know-how.
+    </p>
+    <p>
+      Because IP is <strong>intangible</strong>, it requires special legal protection to prevent
+      others from copying, stealing, or misusing it.
+    </p>
+    <p>IP rights:</p>
+    <ul>
+      <li>Prove ownership of creations</li>
+      <li>Give creators exclusive control and economic benefit</li>
+      <li>Encourage innovation and creativity</li>
+    </ul>
+    <p>The four core categories of IP in this tutorial are:</p>
+    <ul>
+      <li><strong>Copyright</strong></li>
+      <li><strong>Trademarks</strong></li>
+      <li><strong>Patents</strong></li>
+      <li><strong>Trade secrets</strong></li>
+    </ul>
 
-  <h3>2.2 Copyright</h3>
-  <h4>What Copyright Protects</h4>
-  <p>Copyright protects <strong>original expressions</strong>, not ideas themselves. Examples:</p>
-  <ul>
-    <li>Books, articles, blog posts, and software code</li>
-    <li>Music, films, recordings, choreography</li>
-    <li>Paintings, drawings, photographs, graphic designs</li>
-    <li>Architectural works and digital or web content</li>
-  </ul>
+    <h3>2.2 Copyright</h3>
+    <h4>What Copyright Protects</h4>
+    <p>Copyright protects <strong>original expressions</strong>, not ideas themselves. Examples:</p>
+    <ul>
+      <li>Books, articles, blog posts, and software code</li>
+      <li>Music, films, recordings, choreography</li>
+      <li>Paintings, drawings, photographs, graphic designs</li>
+      <li>Architectural works and digital or web content</li>
+    </ul>
 
-  <h4>Exclusive Rights</h4>
-  <p>The copyright owner has the exclusive right to:</p>
-  <ul>
-    <li>Reproduce (copy) the work</li>
-    <li>Publish or distribute it</li>
-    <li>Perform or display it in public</li>
-    <li>Create adaptations or derivative works</li>
-  </ul>
+    <h4>Exclusive Rights</h4>
+    <p>The copyright owner has the exclusive right to:</p>
+    <ul>
+      <li>Reproduce (copy) the work</li>
+      <li>Publish or distribute it</li>
+      <li>Perform or display it in public</li>
+      <li>Create adaptations or derivative works</li>
+    </ul>
 
-  <h4>Duration</h4>
-  <p>
-    In Canada, copyright typically lasts for the
-    <strong>life of the author plus 70 years</strong>.
-  </p>
+    <h4>Duration</h4>
+    <p>
+      In Canada, copyright typically lasts for the
+      <strong>life of the author plus 70 years</strong>.
+    </p>
 
-  <h4>Creation &amp; Ownership</h4>
-  <ul>
-    <li>Copyright arises <strong>automatically</strong> when the work is fixed in a tangible form.</li>
-    <li>Employees’ works are usually owned by the employer when created in the course of employment.</li>
-    <li>
-      Creators retain <strong>moral rights</strong> (e.g., to be named as author, to object to
-      derogatory treatment), even after assigning economic rights.
-    </li>
-  </ul>
+    <h4>Creation &amp; Ownership</h4>
+    <ul>
+      <li>Copyright arises <strong>automatically</strong> when the work is fixed in a tangible form.</li>
+      <li>Employees’ works are usually owned by the employer when created in the course of employment.</li>
+      <li>
+        Creators retain <strong>moral rights</strong> (e.g., to be named as author, to object to
+        derogatory treatment), even after assigning economic rights.
+      </li>
+    </ul>
 
-  <h4>Fair Dealing</h4>
-  <p>
-    Fair dealing permits limited use of copyrighted works without permission for
-    specific purposes, such as:
-  </p>
-  <ul>
-    <li>Research and private study</li>
-    <li>Education</li>
-    <li>Criticism and review</li>
-    <li>News reporting</li>
-    <li>Parody and satire</li>
-  </ul>
-  <p>The use must also be <strong>fair</strong> (considering purpose, amount, alternatives, etc.).</p>
+    <h4>Fair Dealing</h4>
+    <p>
+      Fair dealing permits limited use of copyrighted works without permission for
+      specific purposes, such as:
+    </p>
+    <ul>
+      <li>Research and private study</li>
+      <li>Education</li>
+      <li>Criticism and review</li>
+      <li>News reporting</li>
+      <li>Parody and satire</li>
+    </ul>
+    <p>The use must also be <strong>fair</strong> (considering purpose, amount, alternatives, etc.).</p>
 
-  <h3>2.3 Trademarks</h3>
-  <h4>What Trademarks Protect</h4>
-  <p>
-    A <strong>trademark</strong> is a sign that identifies and distinguishes the source of goods or services.
-    It can include:
-  </p>
-  <ul>
-    <li>Words, names, and slogans</li>
-    <li>Logos and symbols</li>
-    <li>Designs, shapes, colours, packaging</li>
-    <li>Sounds (and in some cases, other sensory marks)</li>
-  </ul>
-  <p>
-    Trademarks help consumers recognize your brand and prevent competitors
-    from using confusingly similar marks.
-  </p>
+    <h3>2.3 Trademarks</h3>
+    <h4>What Trademarks Protect</h4>
+    <p>
+      A <strong>trademark</strong> is a sign that identifies and distinguishes the source of goods or services.
+      It can include:
+    </p>
+    <ul>
+      <li>Words, names, and slogans</li>
+      <li>Logos and symbols</li>
+      <li>Designs, shapes, colours, packaging</li>
+      <li>Sounds (and in some cases, other sensory marks)</li>
+    </ul>
+    <p>
+      Trademarks help consumers recognize your brand and prevent competitors
+      from using confusingly similar marks.
+    </p>
 
-  <h4>Purpose</h4>
-  <ul>
-    <li>Prevent consumer confusion</li>
-    <li>Protect business reputation and goodwill</li>
-    <li>Differentiate products and services in the marketplace</li>
-  </ul>
+    <h4>Purpose</h4>
+    <ul>
+      <li>Prevent consumer confusion</li>
+      <li>Protect business reputation and goodwill</li>
+      <li>Differentiate products and services in the marketplace</li>
+    </ul>
 
-  <h4>Rights &amp; Duration</h4>
-  <ul>
-    <li>Registration grants exclusive nationwide rights to use the trademark.</li>
-    <li>Initial registration period is typically <strong>10 years</strong>, renewable indefinitely.</li>
-    <li>Owners can sue for infringement or passing-off when others use confusingly similar marks.</li>
-  </ul>
+    <h4>Rights &amp; Duration</h4>
+    <ul>
+      <li>Registration grants exclusive nationwide rights to use the trademark.</li>
+      <li>Initial registration period is typically <strong>10 years</strong>, renewable indefinitely.</li>
+      <li>Owners can sue for infringement or passing-off when others use confusingly similar marks.</li>
+    </ul>
 
-  <h4>Loss of Trademark Protection</h4>
-  <ul>
-    <li><strong>Genericide</strong>: when a mark becomes the generic name of a product (e.g., “kleenex”).</li>
-    <li><strong>Abandonment</strong>: when the trademark is not used for a prolonged period.</li>
-  </ul>
+    <h4>Loss of Trademark Protection</h4>
+    <ul>
+      <li><strong>Genericide</strong>: when a mark becomes the generic name of a product (e.g., “kleenex”).</li>
+      <li><strong>Abandonment</strong>: when the trademark is not used for a prolonged period.</li>
+    </ul>
 
-  <h3>2.4 Patents</h3>
-  <h4>What Patents Protect</h4>
-  <p>
-    A <strong>patent</strong> protects <strong>new, useful, and inventive</strong> inventions. These may include:
-  </p>
-  <ul>
-    <li>New products or devices</li>
-    <li>New processes or methods</li>
-    <li>Improvements to existing inventions</li>
-  </ul>
-  <p>Patents protect the <strong>functionality</strong> of an invention, not its appearance.</p>
+    <h3>2.4 Patents</h3>
+    <h4>What Patents Protect</h4>
+    <p>
+      A <strong>patent</strong> protects <strong>new, useful, and inventive</strong> inventions. These may include:
+    </p>
+    <ul>
+      <li>New products or devices</li>
+      <li>New processes or methods</li>
+      <li>Improvements to existing inventions</li>
+    </ul>
+    <p>Patents protect the <strong>functionality</strong> of an invention, not its appearance.</p>
 
-  <h4>Requirements for Patentability</h4>
-  <p>An invention generally must be:</p>
-  <ul>
-    <li><strong>Novel</strong> – not previously disclosed anywhere in the world</li>
-    <li><strong>Useful</strong> – it works and has a practical application</li>
-    <li><strong>Non-obvious</strong> – not obvious to a skilled person in the field</li>
-    <li><strong>Fully disclosed</strong> – enough detail so others can understand and reproduce it</li>
-  </ul>
+    <h4>Requirements for Patentability</h4>
+    <p>An invention generally must be:</p>
+    <ul>
+      <li><strong>Novel</strong> – not previously disclosed anywhere in the world</li>
+      <li><strong>Useful</strong> – it works and has a practical application</li>
+      <li><strong>Non-obvious</strong> – not obvious to a skilled person in the field</li>
+      <li><strong>Fully disclosed</strong> – enough detail so others can understand and reproduce it</li>
+    </ul>
 
-  <h4>Patent Rights &amp; Duration</h4>
-  <ul>
-    <li>
-      A patent grants a <strong>20-year monopoly</strong> (from the filing date) to make, use, sell, or import
-      the invention.
-    </li>
-    <li>Patents can be sold or licensed to others for royalties.</li>
-    <li>They help recoup R&amp;D costs and secure competitive advantage.</li>
-  </ul>
+    <h4>Patent Rights &amp; Duration</h4>
+    <ul>
+      <li>
+        A patent grants a <strong>20-year monopoly</strong> (from the filing date) to make, use, sell, or import
+        the invention.
+      </li>
+      <li>Patents can be sold or licensed to others for royalties.</li>
+      <li>They help recoup R&amp;D costs and secure competitive advantage.</li>
+    </ul>
 
-  <h4>Not Patentable</h4>
-  <ul>
-    <li>Abstract ideas, scientific theories, and mathematical formulas</li>
-    <li>Computer programs “as such” (in Canada, subject to specific rules)</li>
-    <li>Purely aesthetic designs (covered by industrial design, not patents)</li>
-    <li>Inventions with illegal or immoral purposes</li>
-  </ul>
+    <h4>Not Patentable</h4>
+    <ul>
+      <li>Abstract ideas, scientific theories, and mathematical formulas</li>
+      <li>Computer programs “as such” (in Canada, subject to specific rules)</li>
+      <li>Purely aesthetic designs (covered by industrial design, not patents)</li>
+      <li>Inventions with illegal or immoral purposes</li>
+    </ul>
 
-  <h3>2.5 Trade Secrets</h3>
-  <h4>What Trade Secrets Are</h4>
-  <p>
-    A <strong>trade secret</strong> is confidential business information that has
-    economic value because it is secret and provides a competitive advantage.
-  </p>
-  <p>Examples:</p>
-  <ul>
-    <li>Recipes and formulas (e.g., a soft drink formula)</li>
-    <li>Proprietary algorithms and models</li>
-    <li>Manufacturing processes and methods</li>
-    <li>Customer lists, pricing strategies, and market intelligence</li>
-    <li>Internal operating procedures and “know-how”</li>
-  </ul>
+    <h3>2.5 Trade Secrets</h3>
+    <h4>What Trade Secrets Are</h4>
+    <p>
+      A <strong>trade secret</strong> is confidential business information that has
+      economic value because it is secret and provides a competitive advantage.
+    </p>
+    <p>Examples:</p>
+    <ul>
+      <li>Recipes and formulas (e.g., a soft drink formula)</li>
+      <li>Proprietary algorithms and models</li>
+      <li>Manufacturing processes and methods</li>
+      <li>Customer lists, pricing strategies, and market intelligence</li>
+      <li>Internal operating procedures and “know-how”</li>
+    </ul>
 
-  <h4>Requirements</h4>
-  <p>To qualify as a trade secret, information must be:</p>
-  <ul>
-    <li><strong>Secret</strong> – not generally known or easily discoverable</li>
-    <li><strong>Valuable</strong> – provides real or potential commercial advantage</li>
-    <li>
-      <strong>Protected</strong> – subject to reasonable measures such as NDAs, security,
-      and access restrictions
-    </li>
-  </ul>
+    <h4>Requirements</h4>
+    <p>To qualify as a trade secret, information must be:</p>
+    <ul>
+      <li><strong>Secret</strong> – not generally known or easily discoverable</li>
+      <li><strong>Valuable</strong> – provides real or potential commercial advantage</li>
+      <li>
+        <strong>Protected</strong> – subject to reasonable measures such as NDAs, security,
+        and access restrictions
+      </li>
+    </ul>
 
-  <h4>Protection Method &amp; Duration</h4>
-  <ul>
-    <li>No formal registration; protection is through secrecy and contracts.</li>
-    <li>Enforced through breach-of-confidence or contractual claims.</li>
-    <li>Can last <strong>indefinitely</strong>, as long as the information remains secret.</li>
-  </ul>
+    <h4>Protection Method &amp; Duration</h4>
+    <ul>
+      <li>No formal registration; protection is through secrecy and contracts.</li>
+      <li>Enforced through breach-of-confidence or contractual claims.</li>
+      <li>Can last <strong>indefinitely</strong>, as long as the information remains secret.</li>
+    </ul>
 
-  <h3>2.6 Quick Comparison Chart</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>IP Type</th>
-        <th>Protects</th>
-        <th>How You Get It</th>
-        <th>Duration</th>
-        <th>Primary Purpose</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Copyright</strong></td>
-        <td>Creative expression (texts, code, art, music, etc.)</td>
-        <td>Automatic upon creation</td>
-        <td>Life of author + 70 years</td>
-        <td>Protect artistic and literary works</td>
-      </tr>
-      <tr>
-        <td><strong>Trademark</strong></td>
-        <td>Brand identifiers (names, logos, slogans)</td>
-        <td>Use + registration (strongly recommended)</td>
-        <td>10 years, renewable indefinitely</td>
-        <td>Distinguish goods/services and prevent confusion</td>
-      </tr>
-      <tr>
-        <td><strong>Patent</strong></td>
-        <td>New, useful, non-obvious inventions</td>
-        <td>Application and examination</td>
-        <td>20 years from filing</td>
-        <td>Encourage innovation and protect investment</td>
-      </tr>
-      <tr>
-        <td><strong>Trade Secret</strong></td>
-        <td>Confidential, valuable business information</td>
-        <td>Keep it secret + contracts and security</td>
-        <td>Unlimited (while secret)</td>
-        <td>Maintain competitive advantage</td>
-      </tr>
-    </tbody>
-  </table>
+    <h3>2.6 Quick Comparison Chart</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>IP Type</th>
+          <th>Protects</th>
+          <th>How You Get It</th>
+          <th>Duration</th>
+          <th>Primary Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Copyright</strong></td>
+          <td>Creative expression (texts, code, art, music, etc.)</td>
+          <td>Automatic upon creation</td>
+          <td>Life of author + 70 years</td>
+          <td>Protect artistic and literary works</td>
+        </tr>
+        <tr>
+          <td><strong>Trademark</strong></td>
+          <td>Brand identifiers (names, logos, slogans)</td>
+          <td>Use + registration (strongly recommended)</td>
+          <td>10 years, renewable indefinitely</td>
+          <td>Distinguish goods/services and prevent confusion</td>
+        </tr>
+        <tr>
+          <td><strong>Patent</strong></td>
+          <td>New, useful, non-obvious inventions</td>
+          <td>Application and examination</td>
+          <td>20 years from filing</td>
+          <td>Encourage innovation and protect investment</td>
+        </tr>
+        <tr>
+          <td><strong>Trade Secret</strong></td>
+          <td>Confidential, valuable business information</td>
+          <td>Keep it secret + contracts and security</td>
+          <td>Unlimited (while secret)</td>
+          <td>Maintain competitive advantage</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <div class="summary">
-    <strong>Chapter 2 Summary:</strong> Copyright protects creative
-    expression; trademarks protect brand identity; patents protect
-    functional inventions; and trade secrets protect valuable confidential
-    business information. Together, these IP regimes transform mental
-    effort into protected, exploitable assets.
+    <div class="summary summary-ch2">
+      <strong>Chapter 2 Summary:</strong> Copyright protects creative
+      expression; trademarks protect brand identity; patents protect
+      functional inventions; and trade secrets protect valuable confidential
+      business information. Together, these IP regimes transform mental
+      effort into protected, exploitable assets.
+    </div>
   </div>
 
   <!-- ===================== CHAPTER 3 ===================== -->
-  <h2 class="chapter-title">Chapter 3 — Cybercrime &amp; Cybersecurity</h2>
+  <h2 class="chapter-title chapter-3">Chapter 3 — Cybercrime &amp; Cybersecurity</h2>
 
-  <h3>3.1 What Is Cybercrime?</h3>
-  <p>
-    <strong>Cybercrime</strong> includes any crime where computers, networks, or digital
-    systems play a <strong>central role</strong>—either as the target of the attack
-    or as the tool used to commit the offence.
-  </p>
+  <div>
+    <h3>3.1 What Is Cybercrime?</h3>
+    <p>
+      <strong>Cybercrime</strong> includes any crime where computers, networks, or digital
+      systems play a <strong>central role</strong>—either as the target of the attack
+      or as the tool used to commit the offence.
+    </p>
 
-  <h4>Two Major Categories</h4>
-  <ol>
-    <li>
-      <strong>Technology-as-Target</strong><br />
-      Crimes that directly target systems or data:
-      <ul>
-        <li>Hacking and unauthorized access</li>
-        <li>Malware and ransomware attacks</li>
-        <li>Denial-of-service (DoS) and distributed DoS (DDoS)</li>
-        <li>Botnets and large-scale automated attacks</li>
-        <li>Supply-chain attacks and long-term intrusions</li>
-      </ul>
-    </li>
-    <li>
-      <strong>Technology-as-Instrument</strong><br />
-      Traditional crimes carried out using digital means:
-      <ul>
-        <li>Online fraud and phishing schemes</li>
-        <li>Identity theft and credential theft</li>
-        <li>Harassment, cyberbullying, and exploitation</li>
-        <li>Money laundering and trafficking facilitated by digital tools</li>
-        <li>Intellectual property theft and piracy</li>
-      </ul>
-    </li>
-  </ol>
-  <p>
-    As technology becomes embedded in everyday life, the scale and impact
-    of cybercrime continue to grow.
-  </p>
+    <h4>Two Major Categories</h4>
+    <ol>
+      <li>
+        <strong>Technology-as-Target</strong><br />
+        Crimes that directly target systems or data:
+        <ul>
+          <li>Hacking and unauthorized access</li>
+          <li>Malware and ransomware attacks</li>
+          <li>Denial-of-service (DoS) and distributed DoS (DDoS)</li>
+          <li>Botnets and large-scale automated attacks</li>
+          <li>Supply-chain attacks and long-term intrusions</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Technology-as-Instrument</strong><br />
+        Traditional crimes carried out using digital means:
+        <ul>
+          <li>Online fraud and phishing schemes</li>
+          <li>Identity theft and credential theft</li>
+          <li>Harassment, cyberbullying, and exploitation</li>
+          <li>Money laundering and trafficking facilitated by digital tools</li>
+          <li>Intellectual property theft and piracy</li>
+        </ul>
+      </li>
+    </ol>
+    <p>
+      As technology becomes embedded in everyday life, the scale and impact
+      of cybercrime continue to grow.
+    </p>
 
-  <h3>3.2 Evolution of Modern Fraud</h3>
-  <p>
-    Fraud has shifted from traditional, in-person scams to highly scalable,
-    <strong>online and automated schemes</strong>, often aided by AI and social media.
-  </p>
-  <p>Common modern fraud types include:</p>
-  <ul>
-    <li>Cryptocurrency and online investment scams</li>
-    <li>Emergency or “grandparent” scams</li>
-    <li>Job and employment scams (money mule schemes)</li>
-    <li>Tech-support fraud and fake service providers</li>
-    <li>Phishing, smishing (SMS), and vishing (voice phishing)</li>
-  </ul>
+    <h3>3.2 Evolution of Modern Fraud</h3>
+    <p>
+      Fraud has shifted from traditional, in-person scams to highly scalable,
+      <strong>online and automated schemes</strong>, often aided by AI and social media.
+    </p>
+    <p>Common modern fraud types include:</p>
+    <ul>
+      <li>Cryptocurrency and online investment scams</li>
+      <li>Emergency or “grandparent” scams</li>
+      <li>Job and employment scams (money mule schemes)</li>
+      <li>Tech-support fraud and fake service providers</li>
+      <li>Phishing, smishing (SMS), and vishing (voice phishing)</li>
+    </ul>
 
-  <h3>3.3 Vishing (Voice Phishing)</h3>
-  <p>
-    <strong>Vishing</strong> uses phone calls or voice messages (sometimes AI-generated)
-    to trick victims into revealing sensitive information or sending money.
-  </p>
-  <p>Typical vishing techniques:</p>
-  <ul>
-    <li>Impersonating banks, government agencies, or tech support</li>
-    <li>Using spoofed caller IDs to appear legitimate</li>
-    <li>Creating urgency (“act now or your account will be frozen”)</li>
-    <li>Exploiting emotions, especially in “emergency” or “grandparent” scams</li>
-  </ul>
-  <p>Red flags include unexpected calls demanding money or data, pressure tactics, and requests for passwords or banking details.</p>
+    <h3>3.3 Vishing (Voice Phishing)</h3>
+    <p>
+      <strong>Vishing</strong> uses phone calls or voice messages (sometimes AI-generated)
+      to trick victims into revealing sensitive information or sending money.
+    </p>
+    <p>Typical vishing techniques:</p>
+    <ul>
+      <li>Impersonating banks, government agencies, or tech support</li>
+      <li>Using spoofed caller IDs to appear legitimate</li>
+      <li>Creating urgency (“act now or your account will be frozen”)</li>
+      <li>Exploiting emotions, especially in “emergency” or “grandparent” scams</li>
+    </ul>
+    <p>Red flags include unexpected calls demanding money or data, pressure tactics, and requests for passwords or banking details.</p>
 
-  <h3>3.4 Common Cyber Threats</h3>
-  <p>Key threats for individuals and organizations:</p>
-  <ul>
-    <li>Phishing emails and malicious links</li>
-    <li>Malware, including spyware and ransomware</li>
-    <li>Weak or reused passwords</li>
-    <li>Unsafe use of public Wi-Fi</li>
-    <li>Unpatched or outdated software</li>
-    <li>Identity theft and account takeover</li>
-    <li>Social engineering attacks</li>
-  </ul>
-  <p>
-    Cybersecurity requires both strong technical controls and informed, cautious
-    human behaviour.
-  </p>
+    <h3>3.4 Common Cyber Threats</h3>
+    <p>Key threats for individuals and organizations:</p>
+    <ul>
+      <li>Phishing emails and malicious links</li>
+      <li>Malware, including spyware and ransomware</li>
+      <li>Weak or reused passwords</li>
+      <li>Unsafe use of public Wi-Fi</li>
+      <li>Unpatched or outdated software</li>
+      <li>Identity theft and account takeover</li>
+      <li>Social engineering attacks</li>
+    </ul>
+    <p>
+      Cybersecurity requires both strong technical controls and informed, cautious
+      human behaviour.
+    </p>
 
-  <h3>3.5 Ransomware &amp; Business Protection</h3>
-  <p>
-    <strong>Ransomware</strong> is malware that encrypts data or locks systems and demands
-    a ransom (often in cryptocurrency) for decryption.
-  </p>
+    <h3>3.5 Ransomware &amp; Business Protection</h3>
+    <p>
+      <strong>Ransomware</strong> is malware that encrypts data or locks systems and demands
+      a ransom (often in cryptocurrency) for decryption.
+    </p>
 
-  <h4>Prevention Measures</h4>
-  <ul>
-    <li>Strong, unique passwords and multi-factor authentication (MFA)</li>
-    <li>Regular software updates and security patches</li>
-    <li>Disabling or limiting risky features like macros in documents</li>
-    <li>Using antivirus, firewalls, and endpoint protection</li>
-    <li>Network segmentation and least-privilege access control</li>
-    <li>Continuous employee training to recognize phishing and scams</li>
-    <li>
-      Routine <strong>offline or segregated backups</strong> of critical data, tested regularly
-      for restoration
-    </li>
-    <li>Documented incident response plans</li>
-  </ul>
+    <h4>Prevention Measures</h4>
+    <ul>
+      <li>Strong, unique passwords and multi-factor authentication (MFA)</li>
+      <li>Regular software updates and security patches</li>
+      <li>Disabling or limiting risky features like macros in documents</li>
+      <li>Using antivirus, firewalls, and endpoint protection</li>
+      <li>Network segmentation and least-privilege access control</li>
+      <li>Continuous employee training to recognize phishing and scams</li>
+      <li>
+        Routine <strong>offline or segregated backups</strong> of critical data, tested regularly
+        for restoration
+      </li>
+      <li>Documented incident response plans</li>
+    </ul>
 
-  <h4>If an Attack Happens</h4>
-  <ul>
-    <li>Immediately disconnect affected systems from the network.</li>
-    <li>Do <strong>not</strong> pay the ransom impulsively; payment is not guaranteed to work.</li>
-    <li>Contact cybersecurity professionals and relevant authorities.</li>
-    <li>Report the incident to law enforcement and, where required, regulators.</li>
-    <li>Use clean backups to restore systems after the environment is secured.</li>
-  </ul>
+    <h4>If an Attack Happens</h4>
+    <ul>
+      <li>Immediately disconnect affected systems from the network.</li>
+      <li>Do <strong>not</strong> pay the ransom impulsively; payment is not guaranteed to work.</li>
+      <li>Contact cybersecurity professionals and relevant authorities.</li>
+      <li>Report the incident to law enforcement and, where required, regulators.</li>
+      <li>Use clean backups to restore systems after the environment is secured.</li>
+    </ul>
 
-  <h3>3.6 Privacy Law &amp; Cybersecurity</h3>
-  <p>
-    Privacy laws require organizations to implement reasonable safeguards to protect
-    personal information. Cybersecurity failures can become
-    <strong>privacy violations</strong> leading to:
-  </p>
-  <ul>
-    <li>Regulatory investigations</li>
-    <li>Fines or penalties (where applicable)</li>
-    <li>Civil lawsuits and class actions</li>
-    <li>Reputational damage and loss of customer trust</li>
-  </ul>
-  <p>
-    Good cybersecurity is therefore both a technical necessity and a legal requirement.
-  </p>
+    <h3>3.6 Privacy Law &amp; Cybersecurity</h3>
+    <p>
+      Privacy laws require organizations to implement reasonable safeguards to protect
+      personal information. Cybersecurity failures can become
+      <strong>privacy violations</strong> leading to:
+    </p>
+    <ul>
+      <li>Regulatory investigations</li>
+      <li>Fines or penalties (where applicable)</li>
+      <li>Civil lawsuits and class actions</li>
+      <li>Reputational damage and loss of customer trust</li>
+    </ul>
+    <p>
+      Good cybersecurity is therefore both a technical necessity and a legal requirement.
+    </p>
 
-  <div class="summary">
-    <strong>Chapter 3 Summary:</strong> Cybercrime uses digital systems both as a
-    direct target and as tools for fraud, theft, and harassment. Modern threats—
-    including phishing, vishing, and ransomware—require strong technical safeguards,
-    well-trained users, and robust incident response. Cybersecurity and privacy
-    compliance are deeply interconnected.
+    <div class="summary summary-ch3">
+      <strong>Chapter 3 Summary:</strong> Cybercrime uses digital systems both as a
+      direct target and as tools for fraud, theft, and harassment. Modern threats—
+      including phishing, vishing, and ransomware—require strong technical safeguards,
+      well-trained users, and robust incident response. Cybersecurity and privacy
+      compliance are deeply interconnected.
+    </div>
   </div>
 
   <!-- ===================== FLASHCARDS ===================== -->
@@ -877,7 +978,6 @@
           <option value="ch1">Chapter 1 – Privacy & Confidentiality (MCQ)</option>
           <option value="ch2">Chapter 2 – Intellectual Property (MCQ)</option>
           <option value="ch3">Chapter 3 – Cybercrime & Cybersecurity (MCQ)</option>
-          <option value="tf">True / False (All Chapters)</option>
           <option id="fc-failedOption" value="failed" disabled>Failed cards (0)</option>
         </select>
       </div>
@@ -1982,3 +2082,4 @@
 </script>
 </body>
 </html>
+
