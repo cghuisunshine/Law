@@ -982,12 +982,11 @@
   <!-- ===================== FLASHCARDS ===================== -->
   <section id="flashcards">
     <h2>Flashcards</h2>
-    <p class="fc-intro">Practice quick-check MCQs and True/False across all chapters, or focus on your missed cards.</p>
 
     <div class="fc-controls">
       <div class="fc-select-wrapper">
         <select class="fc-select" id="fc-deckSelect">
-          <option value="all">All Questions – MCQ + True/False</option>
+          <option value="all">Mixed Deck – MCQ + True/False</option>
           <option id="fc-failedOption" value="failed" disabled>Failed cards (0)</option>
         </select>
       </div>
@@ -1770,8 +1769,8 @@
     ];
 
     decks.all = {
-      label: "All Questions – MCQ + True/False",
-      badge: "All Questions · Mixed",
+      label: "Mixed Deck – MCQ + True/False",
+      badge: "Mixed Deck",
       type: "MIXED",
       cards: combinedCards
     };
