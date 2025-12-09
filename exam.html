@@ -258,25 +258,6 @@
       margin-bottom: 14px;
     }
 
-    #flashcards .fc-pill {
-      padding: 5px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.8rem;
-      color: #cbd5e1;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    #flashcards .fc-pill .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #38bdf8;
-    }
-
     #flashcards .fc-select {
       background: #020617;
       color: #e5e7eb;
@@ -990,10 +971,6 @@
           <option id="fc-failedOption" value="failed" disabled>Failed cards (0)</option>
         </select>
       </div>
-      <span class="fc-pill">
-        <span class="dot"></span>
-        <span id="fc-deckMeta">20 cards · MCQ</span>
-      </span>
     </div>
 
     <div class="fc-card" id="fc-card">
@@ -1938,7 +1915,9 @@
       if (!deck) return;
       const total = deck.cards.length;
       const typeLabel = formatDeckType(deck.type);
-      deckMeta.textContent = `${total} cards · ${typeLabel}`;
+      if (deckMeta) {
+        deckMeta.textContent = `${total} cards · ${typeLabel}`;
+      }
       badgeText.textContent = deck.badge || deck.label || "Flashcards";
     }
 
